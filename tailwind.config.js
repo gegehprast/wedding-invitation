@@ -7,7 +7,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "blue-floral": "rgb(21, 38, 56, 1)"
+                "blue-floral": "rgb(21, 38, 56)"
             }
         },
     },
