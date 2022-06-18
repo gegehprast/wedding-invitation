@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState, WheelEventHandler } from "react"
 import BgFlowerBig from "../components/BgFlowerBig"
 import BgFlowerHorizontal from "../components/BgFlowerHorizontal"
+import BgFlowerHorizontalDown from "../components/BgFlowerHorizontalDown"
+import BgFlowerHorizontalUp from "../components/BgFlowerHorizontalUp"
 import { isNil, isPositiveNumber } from "../utils/utils"
 
 const DEFAULT_COMPONENT_INDEX = 0
@@ -20,12 +22,12 @@ const Home = () => {
 
     const scrollPage = useCallback(
         (nextComponentIndex: number) => {
-            pageContainer.current!.style.transform = `translate3d(${nextComponentIndex * -100}%, 0, 0)`
+            pageContainer.current!.style.transform = `translate3d(0, ${nextComponentIndex * -100}%, 0)`
         },
         [],
     )
 
-    const scrollWindowDown = useCallback(
+    const scrollNext = useCallback(
         () => {
             if (!isScrolling) {
                 if (!isNil(containers[componentIndex + 1])) {
@@ -41,7 +43,7 @@ const Home = () => {
         [componentIndex, scrollPage],
     )
     
-    const scrollWindowUp = useCallback(
+    const ScrollPrev = useCallback(
         () => {
             if (!isScrolling) {
                 if (!isNil(containers[componentIndex - 1])) {
@@ -67,15 +69,15 @@ const Home = () => {
                 if (isPositiveNumber(event.deltaY)) {
                     lastScrolledElement.current = event.target
 
-                    scrollWindowDown()
+                    scrollNext()
                 } else {
                     lastScrolledElement.current = event.target
 
-                    scrollWindowUp()
+                    ScrollPrev()
                 }
             }
         },
-        [scrollWindowDown, scrollWindowUp],
+        [scrollNext, ScrollPrev],
     )
 
     return (
@@ -83,43 +85,63 @@ const Home = () => {
             className="w-screen h-screen overflow-hidden text-gray-100 bg-blue-floral"
         >
             <div ref={pageContainer} 
-                className="grid w-full h-full grid-flow-col grid-rows-1 gap-0 transition-transform ease-in-out outline-none" 
-                style={{ transitionDuration: `${TRANSITION_DURATION}ms`, transform: 'translate3d(0%, 0px, 0px)' }}
+                className="grid w-full h-full grid-flow-row grid-cols-1 gap-0 transition-transform ease-in-out outline-none" 
+                style={{ transitionDuration: `${TRANSITION_DURATION}ms`, transform: 'translate3d(0px, 0px, 0px)' }}
                 onWheel={wheelScroll}
             >
                 <section className="relative w-screen h-screen bg-red-400 bg-opacity-0">
                     <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
                     <span>{counter}</span>
                     
-                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
+                    {/* <BgFlowerBig className="top-0 left-0 -z-10"/> */}
+                    {/* <BgFlowerBig className="top-0 left-0 rotate-180 -z-10"/> */}
+                    {/* <BgFlowerHorizontal className="top-0 left-0 -z-10" /> */}
+                    <BgFlowerHorizontalUp className="top-0 left-0 -z-10" />
+                    <BgFlowerHorizontalDown className="top-0 left-0 -z-10" />
                 </section>
 
                 <section className="relative w-screen h-screen bg-green-400 bg-opacity-0">
                     <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
                     <span>{counter}</span>
                     
-                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
+                    {/* <BgFlowerBig className="top-0 left-0 -z-10"/> */}
+                    {/* <BgFlowerBig className="top-0 left-0 rotate-180 -z-10"/> */}
+                    {/* <BgFlowerHorizontal className="top-0 left-0 -z-10" /> */}
+                    <BgFlowerHorizontalUp className="top-0 left-0 -z-10" />
+                    <BgFlowerHorizontalDown className="top-0 left-0 -z-10" />
                 </section>
 
                 <section className="relative w-screen h-screen bg-blue-400 bg-opacity-0">
                     <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
                     <span>{counter}</span>
                     
-                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
+                    {/* <BgFlowerBig className="top-0 left-0 -z-10"/> */}
+                    {/* <BgFlowerBig className="top-0 left-0 rotate-180 -z-10"/> */}
+                    {/* <BgFlowerHorizontal className="top-0 left-0 -z-10" /> */}
+                    <BgFlowerHorizontalUp className="top-0 left-0 -z-10" />
+                    <BgFlowerHorizontalDown className="top-0 left-0 -z-10" />
                 </section>
 
                 <section className="relative w-screen h-screen bg-yellow-400 bg-opacity-0">
                     <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
                     <span>{counter}</span>
                     
-                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
+                    {/* <BgFlowerBig className="top-0 left-0 -z-10"/> */}
+                    {/* <BgFlowerBig className="top-0 left-0 rotate-180 -z-10"/> */}
+                    {/* <BgFlowerHorizontal className="top-0 left-0 -z-10" /> */}
+                    <BgFlowerHorizontalUp className="top-0 left-0 -z-10" />
+                    <BgFlowerHorizontalDown className="top-0 left-0 -z-10" />
                 </section>
 
                 <section className="relative w-screen h-screen bg-opacity-0 bg-violet-400">
                     <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
                     <span>{counter}</span>
                     
-                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
+                    {/* <BgFlowerBig className="top-0 left-0 -z-10"/> */}
+                    {/* <BgFlowerBig className="top-0 left-0 rotate-180 -z-10"/> */}
+                    {/* <BgFlowerHorizontal className="top-0 left-0 -z-10" /> */}
+                    <BgFlowerHorizontalUp className="top-0 left-0 -z-10" />
+                    <BgFlowerHorizontalDown className="top-0 left-0 -z-10" />
                 </section>
             </div>
         </main>

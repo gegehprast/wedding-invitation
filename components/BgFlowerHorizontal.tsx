@@ -6,8 +6,8 @@ interface Props {
 
 const BgFlowerHorizontal: React.FC<Props> = ({ className }) => {
     return (
-        <div className={`absolute w-screen h-screen overflow-hidden ${className}`}>
-            <div className={`w-full h-full bg-no-repeat bg-contain bg-[url(/svg/flower-horizontal.svg)] bg-[position:center_102%]`}>
+        <div className={`absolute w-screen h-screen ${className}`}>
+            <div className={`w-full h-full bg-no-repeat bg-contain bg-[url(/svg/flower-horizontal.svg)] bg-[position:center_calc(100%+1%)]`}>
 
             </div>
         </div>
