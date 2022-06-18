@@ -1,16 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState, WheelEventHandler } from "react"
-
-export const isNil = (value: any) => value === undefined || value === null
-
-export const isNull = (value: any) => value === null
-
-export const isPositiveNumber = (value: number) => value > 0
+import BgFlowerBig from "../components/BgFlowerBig"
+import BgFlowerHorizontal from "../components/BgFlowerHorizontal"
+import { isNil, isPositiveNumber } from "../utils/utils"
 
 const DEFAULT_COMPONENT_INDEX = 0
 const MINIMAL_DELTA_Y_DIFFERENCE = 1
-const TRANSITION_DURATION = 500
+const TRANSITION_DURATION = 800
 const TRANSITION_BUFFER = 200
-
 
 let isScrolling = false
 const containers = [true, true, true, true, true]
@@ -24,7 +20,7 @@ const Home = () => {
 
     const scrollPage = useCallback(
         (nextComponentIndex: number) => {
-            pageContainer.current!.style.transform = `translate3d(0, ${nextComponentIndex * -100}%, 0)`
+            pageContainer.current!.style.transform = `translate3d(${nextComponentIndex * -100}%, 0, 0)`
         },
         [],
     )
@@ -67,7 +63,6 @@ const Home = () => {
 
     const wheelScroll = useCallback<WheelEventHandler<HTMLDivElement>>(
         event => {
-            console.log(Math.abs(event.deltaY))
             if (Math.abs(event.deltaY) > MINIMAL_DELTA_Y_DIFFERENCE) {
                 if (isPositiveNumber(event.deltaY)) {
                     lastScrolledElement.current = event.target
@@ -85,34 +80,46 @@ const Home = () => {
 
     return (
         <main ref={scrollContainer} 
-            className="bg-blue-floral overflow-hidden h-screen w-screen" 
+            className="w-screen h-screen overflow-hidden text-gray-100 bg-blue-floral"
         >
             <div ref={pageContainer} 
-                className="w-full h-full outline-none transition-transform ease-in duration-500"
+                className="grid w-full h-full grid-flow-col grid-rows-1 gap-0 transition-transform ease-in-out outline-none" 
+                style={{ transitionDuration: `${TRANSITION_DURATION}ms`, transform: 'translate3d(0%, 0px, 0px)' }}
                 onWheel={wheelScroll}
             >
-                <section className="h-screen bg-red-400">
-
+                <section className="relative w-screen h-screen bg-red-400 bg-opacity-0">
+                    <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
+                    <span>{counter}</span>
+                    
+                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
                 </section>
 
-                <section className="h-screen bg-green-400">
-                    {counter}
-                    <button onClick={() => setCounter(prev => prev + 1)}>click me</button>
+                <section className="relative w-screen h-screen bg-green-400 bg-opacity-0">
+                    <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
+                    <span>{counter}</span>
+                    
+                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
                 </section>
 
-                <section className="h-screen bg-blue-400">
-                    {counter}
-                    <button onClick={() => setCounter(prev => prev + 1)}>click me</button>
+                <section className="relative w-screen h-screen bg-blue-400 bg-opacity-0">
+                    <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
+                    <span>{counter}</span>
+                    
+                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
                 </section>
 
-                <section className="h-screen bg-yellow-400">
-                    {counter}
-                    <button onClick={() => setCounter(prev => prev + 1)}>click me</button>
+                <section className="relative w-screen h-screen bg-yellow-400 bg-opacity-0">
+                    <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
+                    <span>{counter}</span>
+                    
+                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
                 </section>
 
-                <section className="h-screen bg-violet-400">
-                    {counter}
-                    <button onClick={() => setCounter(prev => prev + 1)}>click me</button>
+                <section className="relative w-screen h-screen bg-opacity-0 bg-violet-400">
+                    <button onClick={() => setCounter(prev => prev + 1)}>Click me: </button>
+                    <span>{counter}</span>
+                    
+                    <BgFlowerHorizontal className="top-0 left-0 -z-10" />
                 </section>
             </div>
         </main>
