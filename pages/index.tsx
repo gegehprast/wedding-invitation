@@ -2,9 +2,14 @@ import React, { useRef, useState } from "react"
 import BgFlowerHorizontalDown from "../components/BgFlowerHorizontalDown"
 import BgFlowerHorizontalUp from "../components/BgFlowerHorizontalUp"
 import PageContainer from "../components/PageContainer"
+import BrideAndGroom from "../components/sections/BrideAndGroom"
+import Countdown from "../components/sections/Countdown"
+import Credits from "../components/sections/Credits"
+import GuestBook from "../components/sections/GuestBook"
+import Main from "../components/sections/Main"
+import Map from "../components/sections/Map"
 
 const Home = () => {
-    const [counter, setCounter] = useState(0)
     const scrollContainer = useRef<HTMLDivElement>(null)
     
     return (
@@ -15,50 +20,23 @@ const Home = () => {
             <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
             
             <PageContainer scrollContainer={scrollContainer}>
-                <section className="relative w-screen h-screen bg-red-400 bg-opacity-30">
-                    <div className="flex items-center justify-center w-full h-full">
-                        <button onClick={() => setCounter(prev => prev + 1)}>CLICK ME 1: </button>
-                        <span className="ml-1">{counter}</span>
-                    </div>
+                {/* main section */}
+                <Main />
 
+                {/* bride and groom */}
+                <BrideAndGroom />
+                
+                {/* days countdown */}
+                <Countdown />
 
-                </section>
+                {/* map */}
+                <Map />
+                
+                {/* guest book */}
+                <GuestBook />
 
-                <section className="relative w-screen h-screen bg-green-400 bg-opacity-30">
-                    <div className="flex items-center justify-center w-full h-full">
-                        <button onClick={() => setCounter(prev => prev + 1)}>CLICK ME 2: </button>
-                        <span className="ml-1">{counter}</span>
-                    </div>
-
-
-                </section>
-
-                <section className="relative w-screen h-screen bg-blue-400 bg-opacity-30">
-                    <div className="flex items-center justify-center w-full h-full">
-                        <button onClick={() => setCounter(prev => prev + 1)}>CLICK ME 3: </button>
-                        <span className="ml-1">{counter}</span>
-                    </div>
-
-
-                </section>
-
-                <section className="relative w-screen h-screen bg-yellow-400 bg-opacity-30">
-                    <div className="flex items-center justify-center w-full h-full">
-                        <button onClick={() => setCounter(prev => prev + 1)}>CLICK ME 4: </button>
-                        <span className="ml-1">{counter}</span>
-                    </div>
-
-
-                </section>
-
-                <section className="relative w-screen h-screen bg-opacity-30 bg-violet-400">
-                    <div className="flex items-center justify-center w-full h-full">
-                        <button onClick={() => setCounter(prev => prev + 1)}>CLICK ME 5: </button>
-                        <span className="ml-1">{counter}</span>
-                    </div>
-
-
-                </section>
+                {/* credits */}
+                <Credits />
             </PageContainer>
         </main>
     )
