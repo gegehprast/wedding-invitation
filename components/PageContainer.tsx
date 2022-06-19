@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState, WheelEventHandler } from 'react'
-import { isNil, isPositiveNumber } from '../utils/utils'
-
-interface Props {
-    children: React.ReactElement[]
-}
+import { isNil, isNull, isPositiveNumber } from '../utils/utils'
 
 const HORIZONTAL_MODE = false
 const DEFAULT_COMPONENT_INDEX = 0
@@ -11,6 +7,7 @@ const MINIMAL_DELTA_Y_DIFFERENCE = 1
 const TRANSITION_DURATION = 800
 const TRANSITION_BUFFER = 200
 
+let previousTouchMove: number | null = null;
 let isScrolling = false
 const horizontalSlideClass = 'grid grid-flow-col grid-rows-1 gap-0';
 const verticalSlideClass = 'grid grid-flow-row grid-cols-1 gap-0';
@@ -19,9 +16,14 @@ const horizontalSlide = (nextComponentIndex: number) => `translate3d(${nextCompo
 const verticalSlide = (nextComponentIndex: number) => `translate3d(0, ${nextComponentIndex * -100}%, 0)`
 
 const getSlideClass = () => HORIZONTAL_MODE ? horizontalSlideClass : verticalSlideClass
-const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide 
+const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide
 
-const PageContainer: React.FC<Props> = ({ children }) => {
+interface Props {
+    children: React.ReactElement[],
+    scrollContainer: React.RefObject<HTMLDivElement>
+}
+
+const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     const pageContainer = useRef<HTMLDivElement>(null)
     const [componentIndex, setComponentIndex] = useState(DEFAULT_COMPONENT_INDEX)
     const lastScrolledElement = useRef<EventTarget>()
@@ -65,10 +67,6 @@ const PageContainer: React.FC<Props> = ({ children }) => {
         [children, componentIndex, scrollPage],
     )
 
-    useEffect(() => {
-        isScrolling = false
-    }, [componentIndex])
-
     const wheelScroll = useCallback<WheelEventHandler<HTMLDivElement>>(
         event => {
             if (Math.abs(event.deltaY) > MINIMAL_DELTA_Y_DIFFERENCE) {
@@ -85,6 +83,51 @@ const PageContainer: React.FC<Props> = ({ children }) => {
         },
         [scrollNext, scrollPrev],
     )
+
+    const touchStart = useCallback(
+        (event: TouchEvent) => {
+            console.log(previousTouchMove)
+            if (!isScrolling) {
+                previousTouchMove = event.touches[0].clientY;
+            }
+        },
+        [],
+    );
+
+    const touchMove = useCallback(
+        (event: TouchEvent) => {
+            console.log(previousTouchMove)
+            if (!isScrolling) {
+                if (!isNull(previousTouchMove)) {
+                    if (event.touches[0].clientY > previousTouchMove!) {
+                        scrollPrev();
+                    } else {
+                        scrollNext();
+                    }
+                } else {
+                    previousTouchMove = event.touches[0].clientY;
+                }
+            }
+        },
+        [scrollNext, scrollPrev],
+    );
+
+    useEffect(() => {
+        previousTouchMove = null
+        isScrolling = false
+    }, [componentIndex])
+
+    useEffect(() => {
+        const instance = scrollContainer.current;
+
+        instance!.addEventListener('touchstart', touchStart);
+        instance!.addEventListener('touchmove', touchMove);
+
+        return () => {
+            instance!.removeEventListener('touchstart', touchStart);
+            instance!.removeEventListener('touchmove', touchMove);
+        };
+    }, [scrollContainer, touchMove, touchStart])
 
     return (
         <div ref={pageContainer}
