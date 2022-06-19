@@ -5,11 +5,11 @@ interface Props {
     children: React.ReactElement[]
 }
 
+const HORIZONTAL_MODE = false
 const DEFAULT_COMPONENT_INDEX = 0
 const MINIMAL_DELTA_Y_DIFFERENCE = 1
 const TRANSITION_DURATION = 800
 const TRANSITION_BUFFER = 200
-const SLIDE_MODE = 'HORIZONTAL'
 
 let isScrolling = false
 const horizontalSlideClass = 'grid grid-flow-col grid-rows-1 gap-0';
@@ -18,8 +18,8 @@ const verticalSlideClass = 'grid grid-flow-row grid-cols-1 gap-0';
 const horizontalSlide = (nextComponentIndex: number) => `translate3d(${nextComponentIndex * -100}%, 0, 0)`
 const verticalSlide = (nextComponentIndex: number) => `translate3d(0, ${nextComponentIndex * -100}%, 0)`
 
-const getSlideClass = () => SLIDE_MODE === 'HORIZONTAL' ? horizontalSlideClass : verticalSlideClass
-const getSlideFunction = () => SLIDE_MODE === 'HORIZONTAL' ? horizontalSlide : verticalSlide 
+const getSlideClass = () => HORIZONTAL_MODE ? horizontalSlideClass : verticalSlideClass
+const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide 
 
 const PageContainer: React.FC<Props> = ({ children }) => {
     const pageContainer = useRef<HTMLDivElement>(null)
