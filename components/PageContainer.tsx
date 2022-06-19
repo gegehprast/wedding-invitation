@@ -1,22 +1,26 @@
 import React, { useCallback, useEffect, useRef, useState, WheelEventHandler } from 'react'
 import { isNil, isNull, isPositiveNumber } from '../utils/utils'
 
-const HORIZONTAL_MODE = false
+const HORIZONTAL_MODE = true
 const DEFAULT_COMPONENT_INDEX = 0
 const MINIMAL_DELTA_Y_DIFFERENCE = 1
 const TRANSITION_DURATION = 800
 const TRANSITION_BUFFER = 200
 
-let previousTouchMove: number | null = null;
+let previousTouchMove: number | null = null
 let isScrolling = false
-const horizontalSlideClass = 'grid grid-flow-col grid-rows-1 gap-0';
-const verticalSlideClass = 'grid grid-flow-row grid-cols-1 gap-0';
+const horizontalSlideClass = 'grid grid-flow-col grid-rows-1 gap-0'
+const verticalSlideClass = 'grid grid-flow-row grid-cols-1 gap-0'
 
 const horizontalSlide = (nextComponentIndex: number) => `translate3d(${nextComponentIndex * -100}%, 0, 0)`
 const verticalSlide = (nextComponentIndex: number) => `translate3d(0, ${nextComponentIndex * -100}%, 0)`
 
+const horizontalTouch = (event: TouchEvent) => event.touches[0].clientX;
+const verticalTouch = (event: TouchEvent) => event.touches[0].clientY;
+
 const getSlideClass = () => HORIZONTAL_MODE ? horizontalSlideClass : verticalSlideClass
 const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide
+const getSlideTouch = () => HORIZONTAL_MODE ? horizontalTouch : verticalTouch
 
 interface Props {
     children: React.ReactElement[],
@@ -88,7 +92,7 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
         (event: TouchEvent) => {
             console.log(previousTouchMove)
             if (!isScrolling) {
-                previousTouchMove = event.touches[0].clientY;
+                previousTouchMove = getSlideTouch()(event);
             }
         },
         [],
@@ -99,13 +103,13 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
             console.log(previousTouchMove)
             if (!isScrolling) {
                 if (!isNull(previousTouchMove)) {
-                    if (event.touches[0].clientY > previousTouchMove!) {
+                    if (getSlideTouch()(event) > previousTouchMove!) {
                         scrollPrev();
                     } else {
                         scrollNext();
                     }
                 } else {
-                    previousTouchMove = event.touches[0].clientY;
+                    previousTouchMove = getSlideTouch()(event);
                 }
             }
         },
