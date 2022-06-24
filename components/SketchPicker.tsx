@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ColorChangeHandler, RGBColor, SketchPicker as RC_SketchPicker } from 'react-color'
 
-const SketchPicker: React.FC<{ color: RGBColor, onChange: ColorChangeHandler }> = ({ color, onChange }) => {
+const SketchPicker: React.FC<{ color: RGBColor, onChange?: ColorChangeHandler, onChangeComplete?: ColorChangeHandler }> = ({ color, onChange, onChangeComplete }) => {
     const [displayColorPicker, setDisplayColorPicker] = useState(false)
 
     const handleClick = () => {
@@ -13,7 +13,13 @@ const SketchPicker: React.FC<{ color: RGBColor, onChange: ColorChangeHandler }> 
     };
 
     const handleChange: ColorChangeHandler = (color, event) => {
-        onChange(color, event)
+        if (onChange) {
+            onChange(color, event)
+        }
+
+        if (onChangeComplete) {
+            onChangeComplete(color, event)
+        }
     };
 
     const styles: Record<string, React.CSSProperties> = {
@@ -42,7 +48,7 @@ const SketchPicker: React.FC<{ color: RGBColor, onChange: ColorChangeHandler }> 
             {displayColorPicker ? <div className='absolute z-20'>
                 <div className='fixed top-0 bottom-0 left-0 right-0' onClick={handleClose} />
                 
-                <RC_SketchPicker color={color} onChange={handleChange} />
+                <RC_SketchPicker color={color} onChange={handleChange} onChangeComplete={handleChange} />
             </div> : null}
 
         </div>

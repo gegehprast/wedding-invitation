@@ -14,7 +14,7 @@ function color(str: string | undefined) {
     return isColorString(str) ? str! : null
 }
 
-const getSvgColors = (input: string, flat = false) => {
+const getSvgColors = (input: string) => {
     const $ = load(input)
 
     // Find elements with a `fill` attribute
@@ -41,15 +41,7 @@ const getSvgColors = (input: string, flat = false) => {
         stops.push(color($(this).css('stop-color')))
     })
 
-    if (flat) {
-        return compact(uniq(fills.concat(strokes).concat(stops)))
-    }
-
-    return {
-        fills: compact(uniq(fills)),
-        strokes: compact(uniq(strokes)),
-        stops: compact(uniq(stops))
-    }
+    return compact(uniq(fills.concat(strokes).concat(stops)))
 }
 
 export default getSvgColors
