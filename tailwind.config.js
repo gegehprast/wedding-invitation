@@ -10,6 +10,12 @@ module.exports = {
                 "blue-floral": "rgb(21, 38, 56)"
             }
         },
+
+        fontFamily: {
+            'lovely': ['lovely'],
+            'ayuku': ['ayuku'],
+            'LoveConchetta': ['"Love Conchetta"'],
+        }
     },
     plugins: [],
 }

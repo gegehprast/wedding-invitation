@@ -1,0 +1,13 @@
+/* purgecss start ignore */
+@font-face {
+    font-family: 'Love Conchetta';
+    src: url('/fonts/LoveConchetta/LoveConchetta.woff2') format('woff2'),
+        url('/fonts/LoveConchetta/LoveConchetta.woff') format('woff'),
+        url('/fonts/LoveConchetta/LoveConchetta.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* purgecss end ignore */
