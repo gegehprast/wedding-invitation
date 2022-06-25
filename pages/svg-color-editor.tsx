@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import getSvgColors from '../utils/get-svg-colors'
 import { ColorChangeHandler, RGBColor } from 'react-color'
 import SketchPicker from '../components/SketchPicker'
 import { useDebouncedCallback } from 'use-debounce'
 import chroma from 'chroma-js'
+import Renderer from '../components/ColorEditor/Renderer'
+import FileSelector from '../components/ColorEditor/FileSelector'
 
 interface SVGColor {
     original: string;
@@ -62,6 +63,77 @@ const SvgColorEditor = () => {
         setSvgColors(clone)
     }
 
+    const handleModifierChange = useCallback(
+        (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
+            const value = parseFloat(event.target.value)
+            const clone = [...svgColors]
+
+            switch (key) {
+                case 'brightness':
+                    setBrightness(value)
+
+                    for (let i = 0; i < clone.length; i++) {
+                        const color = clone[i];
+                        const chromaColor = chroma(color.original).alpha(1).brighten(value)
+
+                        clone[i] = {
+                            original: clone[i].original,
+                            modified: chromaColor.hex('rgb')
+                        }
+                    }
+                    break;
+
+                case 'darkness':
+                    setDarkness(value)
+
+                    for (let i = 0; i < clone.length; i++) {
+                        const color = clone[i];
+                        const chromaColor = chroma(color.original).alpha(1).darken(value)
+
+                        clone[i] = {
+                            original: clone[i].original,
+                            modified: chromaColor.hex('rgb')
+                        }
+                    }
+                    break;
+
+                case 'saturation':
+                    setSaturation(value)
+
+                    for (let i = 0; i < clone.length; i++) {
+                        const color = clone[i];
+                        const chromaColor = chroma(color.original).alpha(1).saturate(value)
+
+                        clone[i] = {
+                            original: clone[i].original,
+                            modified: chromaColor.hex('rgb')
+                        }
+                    }
+                    break;
+
+                case 'desaturation':
+                    setDesaturation(value)
+
+                    for (let i = 0; i < clone.length; i++) {
+                        const color = clone[i];
+                        const chromaColor = chroma(color.original).alpha(1).desaturate(value)
+
+                        clone[i] = {
+                            original: clone[i].original,
+                            modified: chromaColor.hex('rgb')
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            setSvgColors(clone)
+        },
+      [svgColors],
+    )
+
     const handleApplyModifier = useCallback(
         () => {
             const mapObj: Record<string, string> = svgColors.reduce((current, color) => Object.assign(current, { [color.original]: color.modified }), {})
@@ -70,21 +142,23 @@ const SvgColorEditor = () => {
                 return mapObj[matched];
             })
 
-            console.log(mapObj, originalSvg, replaced)
-
             setSvg(replaced)
         },
         [originalSvg, svgColors],
     )
     
     useEffect(() => {
+        console.log(svg)
         if (svg) {
             const colors = getSvgColors(svg).map(color => ({
                 original: color,
                 modified: color,
             }))
 
-            setSvgColors(colors)
+            setSvgColors(prev => {
+                console.log({prev, colors})
+                return colors
+            })
         }
     }, [svg])
     
@@ -123,7 +197,7 @@ const SvgColorEditor = () => {
                                 max={10}
                                 step={0.1}
                                 value={brightness}
-                                onChange={(e) => setBrightness(parseFloat(e.target.value))} />
+                                onChange={e => handleModifierChange('brightness', e)} />
                         </div>
                         <div className='flex flex-wrap p-2'>
                             <span className='w-full text-gray-600'>Darken ({darkness})</span>
@@ -134,7 +208,7 @@ const SvgColorEditor = () => {
                                 max={10}
                                 step={0.1}
                                 value={darkness}
-                                onChange={(e) => setDarkness(parseFloat(e.target.value))} />
+                                onChange={e => handleModifierChange('darkness', e)} />
                         </div>
                         <div className='flex flex-wrap p-2'>
                             <span className='w-full text-gray-600'>Saturation ({saturation})</span>
@@ -145,7 +219,7 @@ const SvgColorEditor = () => {
                                 max={10}
                                 step={0.1}
                                 value={saturation}
-                                onChange={(e) => setSaturation(parseFloat(e.target.value))} />
+                                onChange={e => handleModifierChange('saturation', e)} />
                         </div>
                         <div className='flex flex-wrap p-2'>
                             <span className='w-full text-gray-600'>Desaturation ({desaturation})</span>
@@ -156,7 +230,7 @@ const SvgColorEditor = () => {
                                 max={10}
                                 step={0.1}
                                 value={desaturation}
-                                onChange={(e) => setDesaturation(parseFloat(e.target.value))} />
+                                onChange={e => handleModifierChange('desaturation', e)} />
                         </div>
                     </div>
 
@@ -167,126 +241,8 @@ const SvgColorEditor = () => {
                     </div>
                 </div>
             </div>
-            
-            <div className='w-4/12 h-screen overflow-y-scroll border-8 border-l-4'>
-                <div className='w-full p-2 border-b-8'>
-                    <div className='mb-2 text-lg font-semibold leading-none'>Colors</div>
-                    
-                    <div className='grid w-full grid-flow-row grid-cols-6 mt-10'>
-                        {svgColors.map((color, index) => <Color
-                            key={index}
-                            index={index}
-                            color={color.original}
-                            onChange={handleColorChange}
-                            brightness={brightness}
-                            darkness={darkness}
-                            saturation={saturation}
-                            desaturation={desaturation} />)}
-                    </div>
-                </div>
-            </div>
         </main>
     )
 }
-
-interface ColorProps {
-    index: number
-    color: string
-    brightness: number
-    darkness: number
-    saturation: number
-    desaturation: number
-    onChange: (index: number, newColor: string) => void
-}
-
-const Color: React.FC<ColorProps> = ({ index, color, brightness, darkness, saturation, desaturation, onChange }) => {
-    const [originalchromaColor, setOriginalchromaColor] = useState(chroma(color))
-    const [chromaColor, setChromaColor] = useState(originalchromaColor)
-    const rgba = useMemo(() => {
-        return {
-            r: originalchromaColor.get('rgba.r'),
-            g: originalchromaColor.get('rgba.g'), 
-            b: originalchromaColor.get('rgba.b'), 
-            a: originalchromaColor.get('rgba.a')
-        }
-    }, [originalchromaColor])
-    const rgba2 = useMemo(() => {
-        return {
-            r: chromaColor.get('rgba.r'),
-            g: chromaColor.get('rgba.g'),
-            b: chromaColor.get('rgba.b'),
-            a: chromaColor.get('rgba.a')
-        }
-    }, [chromaColor])
-
-    const handleChange: ColorChangeHandler = (color) => {
-        const newChromaColor = chroma(color.hex).alpha(color.rgb.a || 1)
-        const modified = newChromaColor.brighten(brightness)
-            .darken(darkness)
-            .saturate(saturation)
-            .desaturate(desaturation)
-
-        setOriginalchromaColor(newChromaColor)
-        
-        setChromaColor(modified)
-
-        onChange(index, modified.hex())
-    }
-    
-    return (
-        <div className='flex flex-wrap p-2'>
-            <SketchPicker color={rgba} onChange={handleChange} />
-
-            <div className='pointer-events-none'>
-                <SketchPicker color={rgba2} />
-            </div>
-
-            <span className='ml-2 text-gray-600'>
-                {chromaColor.hex('rgba').toUpperCase()}
-            </span>
-        </div>
-    )
-}
-
-const Renderer: React.FC<{ svg: string | null, className: string }> = ({ svg, className }) => {
-    if (!svg) {
-        return null
-    }
-    
-    return (
-        <Image src={`data:image/svg+xml;base64,${svg}`}
-            className={className}
-            width={500}
-            height={500}
-            alt="SVG"
-            layout='responsive' />
-    )
-}
-
-const FileSelector: React.FC<{ onChange: (result: string) => void }> = ({ onChange }) => {
-    const handleFileChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-        if (event.target.files && event.target.files.length > 0) {
-            const file = event.target.files[0]
-            const reader = new FileReader()
-
-            reader.readAsArrayBuffer(file)
-
-            reader.onload = e => {
-                if (e.target?.result) {
-                    const decoder = new TextDecoder('utf-8')
-                    const dataView = new DataView(e.target.result as ArrayBuffer)
-                    const decodedString = decoder.decode(dataView)
-                    
-                    onChange(decodedString)
-                }
-            };
-        }
-    }
-    
-    return (
-        <input type="file" id="svg-file" accept='image/svg+xml' onChange={handleFileChange} />
-    )
-}
-
 
 export default SvgColorEditor
