@@ -1,15 +1,14 @@
 import chroma from 'chroma-js'
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { ColorChangeHandler } from 'react-color'
 import SketchPicker from '../SketchPicker'
 
 interface ColorProps {
     index: number
     color: string
-    onChange: (index: number, newColor: string) => void
 }
 
-const Color: React.FC<ColorProps> = ({ index, color, onChange }) => {
+const Color: React.FC<ColorProps> = ({ color }) => {
     const [originalchromaColor, setOriginalchromaColor] = useState(chroma(color))
     const rgba = useMemo(() => {
         return {
@@ -24,16 +23,18 @@ const Color: React.FC<ColorProps> = ({ index, color, onChange }) => {
         const newChromaColor = chroma(color.hex).alpha(color.rgb.a || 1)
 
         setOriginalchromaColor(newChromaColor)
-
-        onChange(index, newChromaColor.hex())
     }
 
+    useEffect(() => {
+        setOriginalchromaColor(chroma(color))
+    }, [color])
+    
     return (
         <div className='flex flex-wrap p-2'>
             <SketchPicker color={rgba} onChange={handleChange} />
 
             <span className='ml-2 text-gray-600'>
-                {originalchromaColor.hex('rgba').toUpperCase()}
+                {originalchromaColor.hex('rgb').toUpperCase()}
             </span>
         </div>
     )

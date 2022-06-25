@@ -40,7 +40,7 @@ const getSvgColors = (input: string) => {
 
         stops.push(color($(this).css('stop-color')))
     })
-
+    
     return compact(uniq(fills.concat(strokes).concat(stops)))
 }
 
