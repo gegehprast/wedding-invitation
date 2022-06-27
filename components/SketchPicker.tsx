@@ -40,7 +40,7 @@ const SketchPicker: React.FC<{ color: RGBColor, onChange?: ColorChangeHandler, o
     }
     
     return (
-        <div>
+        <div className='relative'>
             <div style={styles.swatch} onClick={handleClick}>
                 <div style={styles.color} />
             </div>

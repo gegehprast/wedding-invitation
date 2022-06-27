@@ -30,11 +30,11 @@ const Color: React.FC<ColorProps> = ({ color }) => {
     }, [color])
     
     return (
-        <div className='flex flex-wrap p-2'>
+        <div className='flex flex-wrap justify-center p-3'>
             <SketchPicker color={rgba} onChange={handleChange} />
 
-            <span className='ml-2 text-gray-600'>
-                {originalchromaColor.hex('rgb').toUpperCase()}
+            <span className='w-full text-sm text-center text-gray-600'>
+                {`rgb(${ rgba.r }, ${ rgba.g }, ${ rgba.b }, ${ rgba.a })`}
             </span>
         </div>
     )
