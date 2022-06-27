@@ -10,6 +10,7 @@ const Main = () => {
             </div>
 
             <Image
+                className='pointer-events-none'
                 src={flowerCircle}
                 alt="Gegeh & Alma"
             />
