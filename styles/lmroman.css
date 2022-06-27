@@ -1,0 +1,9 @@
+/* purgecss start ignore */
+@font-face {
+    font-family: 'Lmroman';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/lm_roman/lmroman17-regular.otf) format("otf");
+}
+/* purgecss end ignore */

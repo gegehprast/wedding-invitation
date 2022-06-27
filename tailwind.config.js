@@ -15,6 +15,7 @@ module.exports = {
             'lovely': ['lovely'],
             'ayuku': ['ayuku'],
             'LoveConchetta': ['"Love Conchetta"'],
+            'lmroman': ['Lmroman'],
         }
     },
     plugins: [],

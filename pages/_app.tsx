@@ -3,6 +3,7 @@ import '../styles/inter.css'
 import '../styles/lovely.css'
 import '../styles/ayuku.css'
 import '../styles/LoveConchetta.css'
+import '../styles/lmroman.css'
 import type { AppProps } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
