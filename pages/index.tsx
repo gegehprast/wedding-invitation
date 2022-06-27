@@ -14,7 +14,9 @@ const Home = () => {
 
     return (
         <main className="relative flex flex-row items-center justify-center w-screen h-screen bg-gray-900">
-            <div ref={scrollContainer} className="relative w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral bg-[url(/svg/flower-tile.svg)] bg-repeat bg-contain">
+            <div ref={scrollContainer} className="relative w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral">
+                <div className="moving-bg"></div>
+
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
                 <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
 

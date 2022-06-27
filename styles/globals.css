@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@-webkit-keyframes bg-slide {
+    from {
+        transform: translate(0, 0);
+    }
+
+    to {
+        transform: translate(-30%, 50%);
+    }
+}
+
+.moving-bg {
+    width: 200%;
+    height: 200%;
+    background-image: url(/svg/flower-tile.svg);
+    background-size: 40%;
+    background-repeat: repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: bg-slide 100s linear infinite;
+}
