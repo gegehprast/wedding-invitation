@@ -1,9 +1,11 @@
 /* purgecss start ignore */
 @font-face {
     font-family: 'Lmroman';
+    src: url('/fonts/lm_roman/lmroman17-regular.woff2') format('woff2'),
+        url('/fonts/lm_roman/lmroman17-regular.woff') format('woff'),
+        url('/fonts/lm_roman/lmroman17-regular.ttf') format('truetype');
+    font-weight: normal;
     font-style: normal;
-    font-weight: 400;
     font-display: swap;
-    src: url(/fonts/lm_roman/lmroman17-regular.otf) format("otf");
 }
 /* purgecss end ignore */
