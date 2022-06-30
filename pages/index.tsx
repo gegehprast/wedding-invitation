@@ -14,7 +14,7 @@ const Home = () => {
 
     return (
         <main className="relative flex flex-row items-center justify-center w-screen h-screen bg-gray-900">
-            <div ref={scrollContainer} className="relative w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral">
+            <div ref={scrollContainer} className="relative w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral">
                 <div className="moving-bg"></div>
 
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
@@ -22,32 +22,32 @@ const Home = () => {
 
                 <PageContainer scrollContainer={scrollContainer}>
                     {/* main section */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <Main />
                     </section>
 
                     {/* bride and groom */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    {/* <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <BrideAndGroom />
-                    </section>
+                    </section> */}
 
                     {/* days countdown */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <Countdown />
                     </section>
 
                     {/* map */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <Map />
                     </section>
 
                     {/* guest book */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <GuestBook />
                     </section>
 
                     {/* credits */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] 2xl:w-[820px] 2xl:h-[1180px] 2xl:aspect-auto">
+                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
                         <Credits />
                     </section>
                 </PageContainer>
