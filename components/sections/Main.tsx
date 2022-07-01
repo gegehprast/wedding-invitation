@@ -16,9 +16,9 @@ const Main = () => {
             />
 
             <div className='flex flex-row items-center justify-center w-full mt-6 flex-nowrap text-[color:#E6C390] text-center'>
-                <h3 className='mt-2 text-xl md:text-3xl md:pt-3'>OCT</h3>
+                <h3 className='mt-2 text-2xl md:text-3xl md:pt-3'>OCT</h3>
                 <h2 className='mx-3 text-5xl md:text-8xl'>31</h2>
-                <h3 className='mt-2 text-xl md:text-3xl md:pt-3'>2022</h3>
+                <h3 className='mt-2 text-2xl md:text-3xl md:pt-3'>2022</h3>
             </div>
         </div>
     )
