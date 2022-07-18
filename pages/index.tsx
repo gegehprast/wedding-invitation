@@ -6,10 +6,10 @@ import BrideAndGroom from "../components/sections/BrideAndGroom"
 import Credits from "../components/sections/Credits"
 import GuestBook from "../components/sections/GuestBook"
 import Main from "../components/sections/Main"
-import Map from "../components/sections/Map"
 import dynamic from 'next/dynamic'
 
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
+const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
 
 const Home = () => {
     const scrollContainer = useRef<HTMLDivElement>(null)
