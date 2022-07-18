@@ -3,11 +3,13 @@ import BgFlowerHorizontalDown from "../components/BgFlowerHorizontalDown"
 import BgFlowerHorizontalUp from "../components/BgFlowerHorizontalUp"
 import PageContainer from "../components/PageContainer"
 import BrideAndGroom from "../components/sections/BrideAndGroom"
-import Countdown from "../components/sections/Countdown"
 import Credits from "../components/sections/Credits"
 import GuestBook from "../components/sections/GuestBook"
 import Main from "../components/sections/Main"
 import Map from "../components/sections/Map"
+import dynamic from 'next/dynamic'
+
+const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 
 const Home = () => {
     const scrollContainer = useRef<HTMLDivElement>(null)
