@@ -32,7 +32,7 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                 <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>JADWAL</h1>
             </div>
             
-            <div className='w-full mt-10 text-center md:mt-28'>
+            <div className='w-full mt-10 text-center md:mt-14 lg:mt-28'>
                 <div>
                     <h2 className='text-5xl text-center md:text-7xl font-Creattion'>Akad Nikah</h2>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
@@ -41,7 +41,7 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                     </ul>
                 </div>
 
-                <div className='mt-10 md:mt-28'>
+                <div className='mt-10 md:mt-14 lg:mt-28'>
                     <h2 className='text-5xl text-center md:text-7xl font-Creattion'>Resepsi</h2>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
                         <li>Senin, 31 Oktober 2022</li>
