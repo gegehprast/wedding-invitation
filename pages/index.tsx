@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import BgFlowerHorizontalDown from "../components/BgFlowerHorizontalDown"
 import BgFlowerHorizontalUp from "../components/BgFlowerHorizontalUp"
 import PageContainer from "../components/PageContainer"
@@ -13,12 +13,39 @@ import ArrowNR from "../components/Icons/ArrowNR"
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
 
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window
+    return {
+        width,
+        height
+    }
+}
+
+function useWindowDimensions() {
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions())
+        }
+
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
+
+    return windowDimensions
+}
+
 const Home = () => {
     const scrollContainer = useRef<HTMLDivElement>(null)
+    const { height, width } = useWindowDimensions()
     
     return (
-        <main className="relative flex flex-row items-center justify-center w-screen h-screen bg-gray-900">
-            <div ref={scrollContainer} className="relative w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral">
+        <main className="relative flex flex-row items-center justify-center w-screen bg-gray-900" style={{ height: `${height}px` }}>
+            <div ref={scrollContainer} 
+                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
+                style={{ maxHeight: `${height}px` }}
+            >
                 <div className="moving-bg"></div>
 
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
@@ -45,32 +72,44 @@ const Home = () => {
 
                 <PageContainer scrollContainer={scrollContainer}>
                     {/* main section */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20">
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <Main />
                     </section>
 
                     {/* bride and groom */}
-                    {/* <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
+                    {/* <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <BrideAndGroom />
                     </section> */}
 
                     {/* days countdown */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20">
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <Countdown />
                     </section>
 
                     {/* map */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20">
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <Map />
                     </section>
 
                     {/* guest book */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20">
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <GuestBook />
                     </section>
 
                     {/* credits */}
-                    <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20">
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                        style={{ maxHeight: `${height}px` }}
+                    >
                         <Credits />
                     </section>
                 </PageContainer>
