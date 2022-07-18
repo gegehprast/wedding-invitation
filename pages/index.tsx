@@ -26,14 +26,14 @@ const Home = () => {
 
                 <div className='absolute top-0 left-0 w-full h-full'>
                     <button type='button'
-                        className='absolute flex flex-col justify-center items-center text-[color:#E6C390] bottom-[1.75rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]'
+                        className='absolute flex flex-col justify-center items-center text-[color:#E6C390] bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]'
                     >
-                        <span className="flex flex-row items-center justify-center w-10">
-                            <span className='w-5 animate-bounce-right md:w-7'>
+                        <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
+                            <span className='w-4 md:w-7'>
                                 <ArrowNR className="transform rotate-180" />
                             </span>
 
-                            <span className='w-5 animate-bounce-right md:w-7'>
+                            <span className='w-4 md:w-7'>
                                 <ArrowNR />
                             </span>
                         </span>
