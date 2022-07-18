@@ -27,12 +27,12 @@ const Countdown = () => {
 
 const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) => {
     return (
-        <div className="relative flex flex-col items-center justify-center w-full h-full py-20 md:py-28 lg:py-24 text-gold">
-            {/* <div className='w-full'>
-                <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>SAVE THE DATE</h1>
-            </div> */}
+        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 text-gold">
+            <div className='w-full'>
+                <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>JADWAL</h1>
+            </div>
             
-            <div className='w-full text-center'>
+            <div className='w-full mt-10 text-center md:mt-28'>
                 <div>
                     <h2 className='text-5xl text-center md:text-7xl font-Creattion'>Akad Nikah</h2>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
@@ -41,7 +41,7 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                     </ul>
                 </div>
 
-                <div className='mt-10 md:mt-20'>
+                <div className='mt-10 md:mt-28'>
                     <h2 className='text-5xl text-center md:text-7xl font-Creattion'>Resepsi</h2>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
                         <li>Senin, 31 Oktober 2022</li>
@@ -50,7 +50,7 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                 </div>
             </div>
             
-            <div className='flex flex-row items-center justify-center w-full mt-20 text-center flex-nowrap font-BebasNeue text-gold md:mt-28'>
+            <div className='flex flex-row items-center justify-center w-full text-center mt-14 flex-nowrap font-BebasNeue text-gold'>
                 <div className='flex flex-col mx-3 md:mx-6'>
                     <span className='text-4xl md:text-6xl'>{days}</span>
                     <span className='text-xl md:text-3xl'>HARI</span>
