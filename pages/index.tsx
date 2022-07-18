@@ -13,6 +13,7 @@ const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
 
 const Home = () => {
     const scrollContainer = useRef<HTMLDivElement>(null)
+    const [index, setIndex] = useState(0)
 
     return (
         <main className="relative flex flex-row items-center justify-center w-screen h-screen bg-gray-900">
@@ -22,10 +23,10 @@ const Home = () => {
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
                 <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
 
-                <PageContainer scrollContainer={scrollContainer}>
+                <PageContainer scrollContainer={scrollContainer} index={index} setIndex={setIndex}>
                     {/* main section */}
                     <section className="w-screen h-screen max-h-screen lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto">
-                        <Main />
+                        <Main index={index} setIndex={setIndex} />
                     </section>
 
                     {/* bride and groom */}

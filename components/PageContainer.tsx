@@ -23,11 +23,13 @@ const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide
 const getSlideTouch = () => HORIZONTAL_MODE ? horizontalTouch : verticalTouch
 
 interface Props {
-    children: React.ReactElement[],
+    children: React.ReactElement | React.ReactElement[],
     scrollContainer: React.RefObject<HTMLDivElement>
+    index: number
+    setIndex: (index: number) => void
 }
 
-const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
+const PageContainer: React.FC<Props> = ({ children, scrollContainer, index, setIndex }) => {
     const pageContainer = useRef<HTMLDivElement>(null)
     const [componentIndex, setComponentIndex] = useState(DEFAULT_COMPONENT_INDEX)
     const lastScrolledElement = useRef<EventTarget>()
@@ -35,14 +37,16 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     const scrollPage = useCallback(
         (nextComponentIndex: number) => {
             pageContainer.current!.style.transform = getSlideFunction()(nextComponentIndex)
+
+            setIndex(nextComponentIndex)
         },
-        [],
+        [setIndex],
     )
 
     const scrollNext = useCallback(
         () => {
             if (!isScrolling) {
-                if (!isNil(children[componentIndex + 1])) {
+                if (!isNil(React.Children.toArray(children)[componentIndex + 1])) {
                     isScrolling = true
                     scrollPage(componentIndex + 1)
 
@@ -58,7 +62,7 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     const scrollPrev = useCallback(
         () => {
             if (!isScrolling) {
-                if (!isNil(children[componentIndex - 1])) {
+                if (!isNil(React.Children.toArray(children)[componentIndex - 1])) {
                     isScrolling = true
                     scrollPage(componentIndex - 1)
 
@@ -133,13 +137,29 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
         };
     }, [scrollContainer, touchMove, touchStart])
 
+    useEffect(() => {
+        if (componentIndex > index) {
+            scrollPrev()
+        }
+        
+        if (componentIndex < index) {
+            scrollNext()
+        }
+    }, [componentIndex, index, scrollNext, scrollPrev])
+    
+
     return (
         <div ref={pageContainer}
             className={`${getSlideClass()} w-full h-full transition-transform ease-in-out outline-none`}
             style={{ transitionDuration: `${TRANSITION_DURATION}ms`, transform: 'translate3d(0px, 0px, 0px)' }}
             onWheel={wheelScroll}
         >
-            {children}
+            {React.Children.map(children, (child) => {
+                if (React.isValidElement(child)) {
+                    // set the map prop on the child component
+                    return React.cloneElement(child)
+                }
+            })}
         </div>
     )
 }

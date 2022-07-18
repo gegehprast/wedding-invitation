@@ -24,6 +24,30 @@ module.exports = {
                 'Creattion': ['Creattion'],
                 'FleurDeLeah': ['Fleur De Leah'],
                 'Inter': ['Inter', 'sans-serif'],
+            },
+
+            keyframes: {
+                'bounce-right': {
+                    '0%': {
+                        transform: 'translateX(10%)',
+                        'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
+                    },
+                    '50%': {
+                        transform: 'translateX(-10%)',
+                        'animation-timing-function': 'cubic-bezier(0,0,0.2,1)',
+                    },
+                    '100%': {
+                        transform: 'translateX(10%)',
+                        'animation-timing-function': 'cubic-bezier(0.8,0,1,1)',
+                    }
+                }
+            },
+
+            animation: {
+                drop: 'drop 5000ms linear infinite',
+                ripple: 'ripple 5000ms ease-out infinite',
+                rotation: 'rotation linear infinite',
+                'bounce-right': 'bounce-right 1s infinite'
             }
         },
     },
