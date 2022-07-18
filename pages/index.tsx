@@ -14,34 +14,59 @@ const Countdown = dynamic(() => import('../components/sections/Countdown'), { ss
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
 
 function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window
+    if (typeof window !== "undefined") {
+        const { innerWidth: width, innerHeight: height } = window
+
+        return {
+            width,
+            height
+        }
+    }
+
     return {
-        width,
-        height
+        width: null,
+        height: null,
     }
 }
 
 function useWindowDimensions() {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
 
+    const refresh = () => {
+        setWindowDimensions(getWindowDimensions())
+    }
+
     useEffect(() => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions())
         }
 
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+        if (typeof window !== "undefined") {
+            window.addEventListener('resize', handleResize)
+        }
+
+        return () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener('resize', handleResize)
+            }
+        }
     }, [])
 
-    return windowDimensions
+    return { ...windowDimensions, refresh }
 }
 
 const Home = () => {
     const scrollContainer = useRef<HTMLDivElement>(null)
-    const { height, width } = useWindowDimensions()
+    const { height, refresh } = useWindowDimensions()
+
+    useEffect(() => {
+        if (height === null) {
+            refresh()
+        }
+    }, [height, refresh])
     
     return (
-        <main className="relative flex flex-row items-center justify-center w-screen bg-gray-900" style={{ height: `${height}px` }}>
+        <main className="relative flex flex-row items-center justify-center w-screen bg-gray-900" style={{ height: height !== null ? `${height}px` : '100vh' }}>
             <div ref={scrollContainer} 
                 className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
                 style={{ maxHeight: `${height}px` }}
