@@ -25,11 +25,9 @@ const getSlideTouch = () => HORIZONTAL_MODE ? horizontalTouch : verticalTouch
 interface Props {
     children: React.ReactElement | React.ReactElement[],
     scrollContainer: React.RefObject<HTMLDivElement>
-    index: number
-    setIndex: (index: number) => void
 }
 
-const PageContainer: React.FC<Props> = ({ children, scrollContainer, index, setIndex }) => {
+const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     const pageContainer = useRef<HTMLDivElement>(null)
     const [componentIndex, setComponentIndex] = useState(DEFAULT_COMPONENT_INDEX)
     const lastScrolledElement = useRef<EventTarget>()
@@ -37,10 +35,8 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer, index, setI
     const scrollPage = useCallback(
         (nextComponentIndex: number) => {
             pageContainer.current!.style.transform = getSlideFunction()(nextComponentIndex)
-
-            setIndex(nextComponentIndex)
         },
-        [setIndex],
+        [],
     )
 
     const scrollNext = useCallback(
@@ -136,17 +132,6 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer, index, setI
             instance!.removeEventListener('touchmove', touchMove);
         };
     }, [scrollContainer, touchMove, touchStart])
-
-    useEffect(() => {
-        if (componentIndex > index) {
-            scrollPrev()
-        }
-        
-        if (componentIndex < index) {
-            scrollNext()
-        }
-    }, [componentIndex, index, scrollNext, scrollPrev])
-    
 
     return (
         <div ref={pageContainer}
