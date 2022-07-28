@@ -52,23 +52,19 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
             
             <div className='flex flex-row items-center justify-center w-full text-center mt-14 flex-nowrap font-BebasNeue text-gold'>
                 <div className='flex flex-col mx-3 md:mx-6'>
-                    <span className='text-4xl md:text-6xl'>{days}</span>
-                    <span className='text-xl md:text-3xl'>HARI</span>
+                    <span className='text-4xl md:text-6xl'>{days} H</span>
                 </div>
 
                 <div className='flex flex-col mx-3 md:mx-6'>
-                    <span className='text-4xl md:text-6xl'>{hours}</span>
-                    <span className='text-xl md:text-3xl'>JAM</span>
+                    <span className='text-4xl md:text-6xl'>{hours} J</span>
                 </div>
 
                 <div className='flex flex-col mx-3 md:mx-6'>
-                    <span className='text-4xl md:text-6xl'>{minutes}</span>
-                    <span className='text-xl md:text-3xl'>MENIT</span>
+                    <span className='text-4xl md:text-6xl'>{minutes} M</span>
                 </div>
 
                 <div className='flex flex-col mx-3 md:mx-6'>
-                    <span className='text-4xl md:text-6xl'>{seconds}</span>
-                    <span className='text-xl md:text-3xl'>DETIK</span>
+                    <span className='text-4xl md:text-6xl'>{seconds} S</span>
                 </div>
             </div>
 
