@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react"
+import Head from 'next/head'
 import BgFlowerHorizontalDown from "../components/BgFlowerHorizontalDown"
 import BgFlowerHorizontalUp from "../components/BgFlowerHorizontalUp"
 import PageContainer from "../components/PageContainer"
@@ -49,6 +50,11 @@ const Home = () => {
     
     return (
         <main className="relative flex flex-row items-center justify-center w-screen bg-gray-900" style={{ height: `${height}px` }}>
+            <Head>
+                <title>Undangan Pernikahan Almalia & Gigih</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <link rel="shortcut icon" href="/favicon.png" />
+            </Head>
             <div ref={scrollContainer} 
                 className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
                 style={{ maxHeight: `${height}px` }}
