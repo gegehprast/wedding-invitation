@@ -15,8 +15,8 @@ const verticalSlideClass = 'grid grid-flow-row grid-cols-1 gap-0'
 const horizontalSlide = (nextComponentIndex: number) => `translate3d(${nextComponentIndex * -100}%, 0, 0)`
 const verticalSlide = (nextComponentIndex: number) => `translate3d(0, ${nextComponentIndex * -100}%, 0)`
 
-const horizontalTouch = (event: TouchEvent) => event.touches[0].clientX;
-const verticalTouch = (event: TouchEvent) => event.touches[0].clientY;
+const horizontalTouch = (event: TouchEvent) => event.touches[0].clientX
+const verticalTouch = (event: TouchEvent) => event.touches[0].clientY
 
 const getSlideClass = () => HORIZONTAL_MODE ? horizontalSlideClass : verticalSlideClass
 const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide
@@ -91,17 +91,17 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     const touchStart = useCallback(
         (event: TouchEvent) => {
             if (!isScrolling) {
-                previousTouchMove = getSlideTouch()(event);
+                previousTouchMove = getSlideTouch()(event)
             }
         },
         [],
-    );
+    )
 
     const touchMove = useCallback(
         (event: TouchEvent) => {
             if (!isScrolling) {
                 if (previousTouchMove === null) {
-                    previousTouchMove = getSlideTouch()(event);
+                    previousTouchMove = getSlideTouch()(event)
                 } else {
                     const currentTouchMove = getSlideTouch()(event)
                     const delta = Math.abs(currentTouchMove - previousTouchMove)
@@ -113,15 +113,15 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
                     }
 
                     if (getSlideTouch()(event) > previousTouchMove) {
-                        scrollPrev();
+                        scrollPrev()
                     } else {
-                        scrollNext();
+                        scrollNext()
                     }
                 }
             }
         },
         [scrollNext, scrollPrev],
-    );
+    )
 
     useEffect(() => {
         previousTouchMove = null
@@ -129,15 +129,15 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     }, [componentIndex])
 
     useEffect(() => {
-        const instance = scrollContainer.current;
+        const instance = scrollContainer.current
 
-        instance!.addEventListener('touchstart', touchStart);
-        instance!.addEventListener('touchmove', touchMove);
+        instance!.addEventListener('touchstart', touchStart)
+        instance!.addEventListener('touchmove', touchMove)
 
         return () => {
-            instance!.removeEventListener('touchstart', touchStart);
-            instance!.removeEventListener('touchmove', touchMove);
-        };
+            instance!.removeEventListener('touchstart', touchStart)
+            instance!.removeEventListener('touchmove', touchMove)
+        }
     }, [scrollContainer, touchMove, touchStart])
 
     return (
