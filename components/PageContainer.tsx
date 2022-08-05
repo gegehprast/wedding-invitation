@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState, WheelEventHandler } from 'react'
-import { isNil, isNull, isPositiveNumber } from '../utils/utils'
+import { isNil, isPositiveNumber } from '../utils/utils'
 
 const HORIZONTAL_MODE = true
 const DEFAULT_COMPONENT_INDEX = 0
@@ -105,8 +105,6 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
                 } else {
                     const currentTouchMove = getSlideTouch()(event)
                     const delta = Math.abs(currentTouchMove - previousTouchMove)
-
-                    console.log(delta)
 
                     if (delta < 50) {
                         return

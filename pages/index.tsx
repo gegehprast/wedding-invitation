@@ -55,6 +55,7 @@ const Home = () => {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
+            
             <div ref={scrollContainer} 
                 className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
                 style={{ maxHeight: `${height}px` }}
