@@ -90,7 +90,6 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
 
     const touchStart = useCallback(
         (event: TouchEvent) => {
-            console.log(previousTouchMove)
             if (!isScrolling) {
                 previousTouchMove = getSlideTouch()(event);
             }
@@ -100,16 +99,24 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
 
     const touchMove = useCallback(
         (event: TouchEvent) => {
-            console.log(previousTouchMove)
             if (!isScrolling) {
-                if (!isNull(previousTouchMove)) {
-                    if (getSlideTouch()(event) > previousTouchMove!) {
+                if (previousTouchMove === null) {
+                    previousTouchMove = getSlideTouch()(event);
+                } else {
+                    const currentTouchMove = getSlideTouch()(event)
+                    const delta = Math.abs(currentTouchMove - previousTouchMove)
+
+                    console.log(delta)
+
+                    if (delta < 50) {
+                        return
+                    }
+
+                    if (getSlideTouch()(event) > previousTouchMove) {
                         scrollPrev();
                     } else {
                         scrollNext();
                     }
-                } else {
-                    previousTouchMove = getSlideTouch()(event);
                 }
             }
         },
