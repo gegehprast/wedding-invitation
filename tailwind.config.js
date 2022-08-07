@@ -22,6 +22,7 @@ module.exports = {
             colors: {
                 'blue-floral': 'rgb(21, 38, 56)',
                 gold: 'rgb(230, 195, 144)',
+                gold2: 'rgb(238, 187, 111)'
             },
 
             fontFamily: {
