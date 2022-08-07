@@ -57,7 +57,7 @@ const Home = () => {
             </Head>
             
             <div ref={scrollContainer} 
-                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
+                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
                 style={{ maxHeight: `${height}px` }}
             >
                 <div className="moving-bg"></div>
@@ -86,7 +86,7 @@ const Home = () => {
 
                 <PageContainer scrollContainer={scrollContainer}>
                     {/* main section */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
                         <Main />
@@ -100,28 +100,28 @@ const Home = () => {
                     </section> */}
 
                     {/* days countdown */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
                         <Countdown />
                     </section>
 
                     {/* map */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
                         <Map />
                     </section>
 
                     {/* guest book */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
                         <GuestBook />
                     </section>
 
                     {/* credits */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] 2xl:aspect-auto py-20"
+                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
                         <Credits />
