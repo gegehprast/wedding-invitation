@@ -42,7 +42,7 @@ const GuestBook = () => {
                         <div className='w-full'>
                             <div className='py-1 px-2 md:px-3 md:py-2 rounded-md shadow-[0_3px_15px_-7px] md:shadow-[0_3px_25px_-10px] bg-gold shadow-[color:rgba(206,240,251,1)]'>
                                 <div className='flex flex-row items-center flex-nowrap'>
-                                    <span className='text-sm font-bold text-gray-800 md:text-base'>
+                                    <span className='text-sm font-bold text-blue-floral md:text-base'>
                                         Almalia Deve
                                     </span>
 
@@ -51,7 +51,7 @@ const GuestBook = () => {
                                     </span>
                                 </div>
 
-                                <p className='text-xs leading-tight text-gray-800 md:leading-snug md:text-base'>
+                                <p className='text-xs leading-tight text-blue-floral md:leading-snug md:text-base'>
                                     Ikut bahagia teteh cantikku, seketika teringat semua perjalanan Cinta teteh dan akhirnya menemukan Cinta yang semoga jadi pelindung buat teteh. Semoga keluarga kalian selalu dalam kebahagiaan ♥🤗
                                 </p>
                             </div>
@@ -61,12 +61,12 @@ const GuestBook = () => {
             </div>
 
             <div className='w-full px-2 mt-2 md:px-20 laptop:px-10 2xl:px-20 font-Inter'>
-                <form className='flex flex-col w-full pl-2 pr-4 ml-auto text-black md:pl-4 md:pr-6' onSubmit={handleSubmitGuestBook}>
-                    <input type='text' className='w-full p-1 rounded' placeholder='Nama' />
+                <form className='flex flex-col w-full pl-2 pr-4 ml-auto text-blue-floral md:pl-4 md:pr-6' onSubmit={handleSubmitGuestBook}>
+                    <input type='text' className='w-full p-1 text-sm rounded' placeholder='Nama' />
 
-                    <textarea className='w-full p-1 mt-2 rounded' maxLength={200} placeholder='Ucapan' />
+                    <textarea className='w-full p-1 mt-2 text-sm rounded' maxLength={200} placeholder='Ucapan' />
 
-                    <select className='w-full p-1 mt-2 rounded' defaultValue={0}>
+                    <select className='w-full p-1 mt-2 text-sm rounded' defaultValue={0}>
                         <option value={0} disabled={true}>Konfirmasi Kehadiran</option>
                         <option value={1}>Akan Hadir</option>
                         <option value={2}>Tidak Hadir</option>
@@ -74,7 +74,7 @@ const GuestBook = () => {
                     </select>
 
                     <div className='w-full mt-2'>
-                        <button type='submit' className='px-3 py-1 rounded-2xl bg-gold text-blue-floral hover:bg-gold2'>
+                        <button type='submit' className='px-3 py-1 text-sm rounded-2xl bg-gold text-blue-floral hover:bg-gold2'>
                             Kirim
                         </button>
                     </div>
