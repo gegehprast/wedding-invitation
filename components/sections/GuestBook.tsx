@@ -29,10 +29,10 @@ const GuestBook = () => {
     return (
         <>
             <div className='w-full'>
-                <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>BUKU TAMU</h1>
+                <h1 className='text-2xl text-center md:text-4xl laptop:text-3xl 2xl:text-4xl font-HinaMincho'>BUKU TAMU</h1>
             </div>
 
-            <div className='w-full px-2 mt-8 md:px-20 md:mt-20'>
+            <div className='w-full px-2 mt-8 md:px-20 md:mt-14 lg:mt-28 laptop:mt-14 2xl:mt-24'>
                 <div className='font-Inter max-h-[45vh] md:max-h-[35vh] overflow-y-scroll pl-0 pr-2 md:p-4' onWheel={handleMessageWheel} ref={messageDivRef}>
                     {[1, 2, 3, 4, 5].map((v, i) => (<div key={i} className='flex flex-row mb-3 md:mb-6 flex-nowrap'>
                         <div className='w-1/12'>

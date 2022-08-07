@@ -14,6 +14,8 @@ import { getWindowDimensions } from "../utils/utils"
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
 
+const WIDTH_CLASS = 'w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[860px] xl:h-[1220px] 2xl:aspect-auto'
+
 function useWindowDimensions() {
     const [windowDimensions, setWindowDimensions] = useState<{ width?: number, height?: number }>({})
 
@@ -57,7 +59,7 @@ const Home = () => {
             </Head>
 
             <div ref={scrollContainer}
-                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral"
+                className={`${WIDTH_CLASS} relative overflow-hidden text-gray-100 bg-blue-floral`}
                 style={{ maxHeight: `${height}px` }}
             >
                 <div className="moving-bg"></div>
@@ -86,7 +88,7 @@ const Home = () => {
 
                 <PageContainer scrollContainer={scrollContainer}>
                     {/* main section */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
+                    <section className={`${WIDTH_CLASS} py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
                         <Main />
@@ -100,37 +102,37 @@ const Home = () => {
                     </section> */}
 
                     {/* days countdown */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
+                    <section className={`${WIDTH_CLASS} py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
                             <Countdown />
                         </div>
                     </section>
 
                     {/* map */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
+                    <section className={`${WIDTH_CLASS} py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
                             <Map />
                         </div>
                     </section>
 
                     {/* guest book */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
+                    <section className={`${WIDTH_CLASS} py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
                             <GuestBook />
                         </div>
                     </section>
 
                     {/* credits */}
-                    <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
+                    <section className={`${WIDTH_CLASS} py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
                             <Credits />
                         </div>
                     </section>
