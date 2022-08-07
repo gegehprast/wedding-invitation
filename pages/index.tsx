@@ -47,7 +47,7 @@ const Home = () => {
     useEffect(() => {
         refresh()
     }, [refresh])
-    
+
     return (
         <main className="relative flex flex-row items-center justify-center w-screen bg-gray-900" style={{ height: `${height}px` }}>
             <Head>
@@ -55,9 +55,9 @@ const Home = () => {
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                 <link rel="shortcut icon" href="/favicon.png" />
             </Head>
-            
-            <div ref={scrollContainer} 
-                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral" 
+
+            <div ref={scrollContainer}
+                className="relative w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto overflow-hidden text-gray-100 bg-blue-floral"
                 style={{ maxHeight: `${height}px` }}
             >
                 <div className="moving-bg"></div>
@@ -103,28 +103,36 @@ const Home = () => {
                     <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <Countdown />
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                            <Countdown />
+                        </div>
                     </section>
 
                     {/* map */}
                     <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <Map />
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                            <Map />
+                        </div>
                     </section>
 
                     {/* guest book */}
                     <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <GuestBook />
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                            <GuestBook />
+                        </div>
                     </section>
 
                     {/* credits */}
                     <section className="w-screen h-full lg:w-[520px] lg:h-auto lg:aspect-[3/4] xl:w-[820px] xl:h-[1180px] laptop:w-[640px] laptop:aspect-auto 2xl:w-[820px] 2xl:aspect-auto py-20"
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <Credits />
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-20 text-gold">
+                            <Credits />
+                        </div>
                     </section>
                 </PageContainer>
             </div>

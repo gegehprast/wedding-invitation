@@ -2,7 +2,7 @@ import React from 'react'
 
 const Map = () => {
     return (
-        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 text-gold">
+        <>
             <div className='w-full'>
                 <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>LOKASI</h1>
             </div>
@@ -21,7 +21,7 @@ const Map = () => {
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCMbdBjsKGNemBx88h8AHWfJV35pTAJvQM&q=3JW9+QWR, Jl. Pulau Mas III, Kepuh Selatan, Kepuharjo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur 65152&zoom=15&language=id">
                 </iframe>
             </div>
-        </div>
+        </>
     )
 }
 

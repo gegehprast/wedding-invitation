@@ -27,7 +27,7 @@ const Countdown = () => {
 
 const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) => {
     return (
-        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 text-gold">
+        <>
             <div className='w-full'>
                 <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>JADWAL</h1>
             </div>
@@ -38,6 +38,9 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
                         <li>Senin, 31 Oktober 2022</li>
                         <li>Pukul 08:00 WIB - selesai</li>
+                        <li>
+                            Jl. Pulau Mas III, Kepuh Selatan, Kepuharjo
+                        </li>
                     </ul>
                 </div>
 
@@ -46,6 +49,9 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                     <ul className='mt-2 text-lg leading-none md:text-2xl md:mt-4 font-BebasNeue'>
                         <li>Senin, 31 Oktober 2022</li>
                         <li>Pukul 12:00 WIB - selesai</li>
+                        <li>
+                            Jl. Pulau Mas III, Kepuh Selatan, Kepuharjo
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -78,7 +84,7 @@ const Counting: React.FC<CountingProps> = ({ days, hours, minutes, seconds }) =>
                     <span className='ml-1 text-sm md:text-base font-Inter'>Simpan ke kalender</span>
                 </a>
             </div>
-        </div>
+        </>
     )
 }
 

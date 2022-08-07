@@ -27,7 +27,7 @@ const GuestBook = () => {
     }, [handleMessageTouch])
 
     return (
-        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 text-gold">
+        <>
             <div className='w-full'>
                 <h1 className='text-2xl text-center md:text-4xl font-HinaMincho'>BUKU TAMU</h1>
             </div>
@@ -57,7 +57,7 @@ const GuestBook = () => {
                     </div>))}
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
