@@ -64,6 +64,12 @@ const GuestBook = () => {
             return
         }
 
+        if (presence === 0) {
+            alert('Silakan mengonfirmasi kehadiran.')
+
+            return
+        }
+
         setSubmitting(true)
         
         const store = await storeRemark(fullname, message, presence)
@@ -161,7 +167,7 @@ const GuestBook = () => {
                         <textarea value={message}
                             className='w-full p-1 mt-2 text-sm rounded'
                             maxLength={200}
-                            rows={4}
+                            rows={3}
                             placeholder='Tulis ucapan'
                             disabled={submitting}
                             required={true}
@@ -180,10 +186,14 @@ const GuestBook = () => {
                             <option value={3}>Telah Hadir</option>
                         </select>
 
-                        <div className='w-full mt-2'>
+                        <div className='flex flex-row flex-wrap items-center w-full mt-2'>
                             <button type='submit' className='px-3 py-1 text-sm rounded-2xl bg-gold text-blue-floral hover:bg-gold2'>
-                                {submitting ? 'Mengirim...' : 'Kirim'}
+                                {submitting ? 'Mengirim...' : 'Kirim'} 
                             </button>
+
+                            <span className='ml-auto text-[10px] md:text-xs italic text-gold'>
+                                Perhatian! Ucapan yang telah dikirim tidak dapat dihapus.
+                            </span>
                         </div>
                     </form>
                 </div>
