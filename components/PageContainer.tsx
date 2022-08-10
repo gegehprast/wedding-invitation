@@ -129,8 +129,8 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
     useEffect(() => {
         const instance = scrollContainer.current
 
-        instance!.addEventListener('touchstart', touchStart)
-        instance!.addEventListener('touchmove', touchMove)
+        instance!.addEventListener('touchstart', touchStart, { passive: true })
+        instance!.addEventListener('touchmove', touchMove, { passive: true })
 
         return () => {
             instance!.removeEventListener('touchstart', touchStart)
