@@ -13,7 +13,7 @@ const Map = () => {
                 </span>
             </div>
 
-            <div className='w-full h-full px-4 mt-2 md:px-20 laptop:px-16 2xl:px-20'>
+            <div className='w-full h-full px-4 pb-20 mt-2 md:pb-10 md:px-20 laptop:px-16 2xl:px-20'>
                 <iframe className='w-full h-full'
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
