@@ -21,8 +21,8 @@ const GuestBook = () => {
     useEffect(() => {
         const instance = messageDivRef.current
 
-        instance!.addEventListener('touchstart', handleMessageTouch)
-        instance!.addEventListener('touchmove', handleMessageTouch)
+        instance!.addEventListener('touchstart', handleMessageTouch, { passive: true })
+        instance!.addEventListener('touchmove', handleMessageTouch, { passive: true })
 
         return () => {
             instance!.removeEventListener('touchstart', handleMessageTouch)
