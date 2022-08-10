@@ -43,6 +43,7 @@ function useWindowDimensions() {
 }
 
 const Home = () => {
+    const [currentIndex, setCurrentIndex] = useState(0)
     const scrollContainer = useRef<HTMLDivElement>(null)
     const { height, refresh } = useWindowDimensions()
 
@@ -67,7 +68,7 @@ const Home = () => {
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
                 <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
 
-                <div className='absolute top-0 left-0 w-full h-full'>
+                {(currentIndex > 0) && <div className='absolute top-0 left-0 w-full h-full'>
                     <button type='button'
                         className='absolute flex flex-col justify-center items-center text-[color:#E6C390] bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]'
                     >
@@ -84,14 +85,16 @@ const Home = () => {
                         <span className='text-xs text-center md:text-sm font-Inter lg:hidden'>Geser</span>
                         <span className='hidden text-xs text-center md:text-sm font-Inter lg:inline-block'>Gulir</span>
                     </button>
-                </div>
+                </div>}
 
-                <PageContainer scrollContainer={scrollContainer}>
+                <PageContainer scrollContainer={scrollContainer} currentIndex={currentIndex} setCurrentIndex={setCurrentIndex}>
                     {/* main section */}
                     <section className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <Main />
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-5 md:py-12 laptop:py-6 2xl:py-16 text-gold">
+                            <Main open={() => setCurrentIndex(-1)} />
+                        </div>
                     </section>
 
                     {/* bride and groom */}

@@ -23,11 +23,13 @@ const getSlideFunction = () => HORIZONTAL_MODE ? horizontalSlide : verticalSlide
 const getSlideTouch = () => HORIZONTAL_MODE ? horizontalTouch : verticalTouch
 
 interface Props {
-    children: React.ReactElement | React.ReactElement[],
+    children: React.ReactElement | React.ReactElement[]
     scrollContainer: React.RefObject<HTMLDivElement>
+    currentIndex: number
+    setCurrentIndex: (index: number) => void
 }
 
-const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
+const PageContainer: React.FC<Props> = ({ children, scrollContainer, currentIndex, setCurrentIndex }) => {
     const pageContainer = useRef<HTMLDivElement>(null)
     const [componentIndex, setComponentIndex] = useState(DEFAULT_COMPONENT_INDEX)
     const lastScrolledElement = useRef<EventTarget>()
@@ -48,11 +50,12 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
 
                     setTimeout(() => {
                         setComponentIndex(prevState => prevState + 1)
+                        setCurrentIndex(componentIndex + 1)
                     }, TRANSITION_DURATION + TRANSITION_BUFFER)
                 }
             }
         },
-        [children, componentIndex, scrollPage],
+        [children, componentIndex, scrollPage, setCurrentIndex],
     )
 
     const scrollPrev = useCallback(
@@ -64,11 +67,12 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
 
                     setTimeout(() => {
                         setComponentIndex(prevState => prevState - 1)
+                        setCurrentIndex(componentIndex - 1)
                     }, TRANSITION_DURATION + TRANSITION_BUFFER)
                 }
             }
         },
-        [children, componentIndex, scrollPage],
+        [children, componentIndex, scrollPage, setCurrentIndex],
     )
 
     const wheelScroll = useCallback<WheelEventHandler<HTMLDivElement>>(
@@ -137,6 +141,14 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer }) => {
             instance!.removeEventListener('touchmove', touchMove)
         }
     }, [scrollContainer, touchMove, touchStart])
+
+    // it just works
+    useEffect(() => {
+        if (currentIndex === -1 && componentIndex === 0) {
+            scrollNext()
+        }
+    }, [currentIndex, scrollNext, componentIndex])
+    
 
     return (
         <div ref={pageContainer}
