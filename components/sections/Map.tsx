@@ -14,7 +14,7 @@ const Map = () => {
             </div>
 
             <div className='w-full h-full px-4 pb-20 mt-2 md:pb-10 md:px-20 laptop:px-16 2xl:px-20'>
-                <iframe className='w-full h-full border-4 md:border-[6px] rounded-md border-gold '
+                <iframe className='w-full h-full border-4 md:border-[6px] rounded-md border-gold'
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     allowFullScreen={false}
