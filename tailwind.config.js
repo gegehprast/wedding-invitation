@@ -22,7 +22,7 @@ module.exports = {
             colors: {
                 'blue-floral': 'rgb(21, 38, 56)',
                 gold: 'rgb(230, 195, 144)',
-                gold2: 'rgb(238, 187, 111)'
+                gold2: 'rgb(238, 187, 111)',
             },
 
             fontFamily: {
@@ -35,6 +35,7 @@ module.exports = {
                 Uchen: ['Uchen', 'serif'],
                 BebasNeue: ['Bebas Neue'],
                 Creattion: ['Creattion'],
+                AlexBrush: ['AlexBrush'],
                 FleurDeLeah: ['Fleur De Leah'],
                 Inter: ['Inter', 'sans-serif'],
             },
