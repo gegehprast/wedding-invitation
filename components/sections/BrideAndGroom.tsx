@@ -27,7 +27,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
         <>
             <div className={`${CLASESS[0]} w-full`}>
                 <h1 className="text-2xl text-center md:text-4xl laptop:text-3xl 2xl:text-4xl font-HinaMincho">
-                    MEMPELAI
+                    Bismillahirrahmanirrahim
                 </h1>
             </div>
 
@@ -49,7 +49,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                         Gigih Prastyono
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
-                        <li>Putra Pertama Bapak Asis & Ibu Sulastri</li>
+                        <li>Putra Pertama Bpk. Asis & Almh. Ibu Sulastri</li>
                     </ul>
                 </div>
 
@@ -69,7 +69,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                         Almalia Deve Yanti
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
-                        <li>Putri Pertama Bapak Soleh & Ibu Dewi</li>
+                        <li>Putri Pertama Bpk. Soleh & Ibu Dewi</li>
                     </ul>
                 </div>
             </div>
