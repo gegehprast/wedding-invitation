@@ -1,22 +1,32 @@
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import Cover from '../modals/Cover'
 
 const BrideAndGroom = () => {
     const [coverModalOpen, setCoverModalOpen] = useState(true)
-
-    const handleCloseCoverModal = (open: boolean) => {
-        
-    }
+    const router = useRouter()
 
     return (
         <>
-            <div className={`${ !coverModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none' } w-full transition-opacity duration-1000 delay-1000 ease-in-out`}>
+            <div
+                className={`${
+                    !coverModalOpen
+                        ? 'opacity-100'
+                        : 'opacity-0 pointer-events-none'
+                } w-full transition-opacity duration-1000 delay-1000 ease-in-out`}
+            >
                 <h1 className="text-2xl text-center md:text-4xl laptop:text-3xl 2xl:text-4xl font-HinaMincho">
                     MEMPELAI
                 </h1>
             </div>
 
-            <div className={`${ !coverModalOpen ? 'opacity-100' : 'opacity-0 pointer-events-none' } w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24 transition-opacity duration-1000 delay-1000 ease-in-out`}>
+            <div
+                className={`${
+                    !coverModalOpen
+                        ? 'opacity-100'
+                        : 'opacity-0 pointer-events-none'
+                } w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24 transition-opacity duration-1000 delay-1000 ease-in-out`}
+            >
                 <div className="px-4 md:px-20 laptop:px-16 2xl:px-20">
                     <h2 className="text-xl text-center font-Peddana md:text-3xl laptop:text-2xl 2xl:text-3xl">
                         Assalamu’alaikum Warahmatullahi Wabarakatuh. Dengan
@@ -53,6 +63,7 @@ const BrideAndGroom = () => {
             <Cover
                 open={coverModalOpen}
                 setOpen={setCoverModalOpen}
+                recipient={router.query.to}
             />
         </>
     )

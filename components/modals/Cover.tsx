@@ -7,12 +7,10 @@ import BgFlowerHorizontalDown from '../BgFlowerHorizontalDown'
 interface CoverProps {
     open: boolean
     setOpen: (open: boolean) => void
+    recipient: string | string[] | undefined
 }
 
-const Cover: React.FC<CoverProps> = ({
-    open,
-    setOpen,
-}) => {
+const Cover: React.FC<CoverProps> = ({ open, setOpen, recipient }) => {
     const mainDivRef = useRef<HTMLDivElement>(null)
 
     const handleDivTouch = useCallback((e: TouchEvent) => {
@@ -41,7 +39,9 @@ const Cover: React.FC<CoverProps> = ({
 
     return (
         <div
-            className={`${ open ? 'opacity-100' : 'opacity-0 pointer-events-none' } absolute top-0 left-0 w-full h-full bg-blue-floral font-Inter transition-opacity duration-[1500ms] ease-in-out`}
+            className={`${
+                open ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            } absolute top-0 left-0 w-full h-full bg-blue-floral font-Inter transition-opacity duration-[1500ms] ease-in-out`}
             onWheel={handleDivWheel}
             ref={mainDivRef}
         >
@@ -81,7 +81,7 @@ const Cover: React.FC<CoverProps> = ({
                             {/* 20 chars */}
                             <div className="flex items-center justify-center px-2 md:pt-4 md:pb-5 md:px-5 w-[65vw] md:w-[50vw] lg:w-[30vw] laptop:w-[20vw] 2xl:w-[15vw] min-h-[10vh] border-2 rounded-md border-gold">
                                 <span className="leading-none text-center md:text-xl">
-                                    ALMALIA DEVE YANTI
+                                    {recipient}
                                 </span>
                             </div>
                         </div>

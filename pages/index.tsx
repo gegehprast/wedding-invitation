@@ -6,10 +6,10 @@ import PageContainer from "../components/PageContainer"
 import BrideAndGroom from "../components/sections/BrideAndGroom"
 import Credits from "../components/sections/Credits"
 import GuestBook from "../components/sections/GuestBook"
-import Main from "../components/sections/Main"
 import dynamic from 'next/dynamic'
 import ArrowNR from "../components/Icons/ArrowNR"
 import { getWindowDimensions } from "../utils/utils"
+import { GetServerSideProps } from "next"
 
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
@@ -46,7 +46,7 @@ const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const scrollContainer = useRef<HTMLDivElement>(null)
     const { height, refresh } = useWindowDimensions()
-
+    
     useEffect(() => {
         refresh()
     }, [refresh])
@@ -157,6 +157,12 @@ const Home = () => {
             </div>
         </main>
     )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    return {
+        props: {},
+    }
 }
 
 export default Home
