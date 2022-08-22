@@ -5,22 +5,11 @@ class MyDocument extends Document {
         return (
             <Html>
                 <Head>
-                    <link
-                        rel="preconnect"
-                        href="https://fonts.googleapis.com"
-                    />
-                    <link
-                        rel="preconnect"
-                        href="https://fonts.gstatic.com"
-                        crossOrigin=""
-                    />
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fleur+De+Leah&family=Hina+Mincho&family=Inter:wght@300;400;500;600;700&family=Noto+Serif&family=Peddana&family=Uchen&display=optional"
-                        rel="stylesheet"
-                        type="text/css"
-                    />
+                    <link rel="preconnect" href="https://fonts.googleapis.com" />
+                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+                    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fleur+De+Leah&family=Hina+Mincho&family=Inter:wght@300;400;500;600;700&family=Noto+Serif&family=Peddana&family=Uchen&display=swap" rel="stylesheet" type='text/css' />
                 </Head>
-
+                
                 <body>
                     <Main />
                     <NextScript />
