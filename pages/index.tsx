@@ -75,53 +75,41 @@ const Home = () => {
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
                 <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
 
-                {currentIndex > 0 && (
-                    <div className="absolute top-0 left-0 w-full h-full">
-                        <button
-                            type="button"
-                            className="absolute flex flex-col justify-center items-center text-[color:#E6C390] bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]"
-                        >
-                            <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
-                                <span className="w-4 md:w-7">
-                                    <ArrowNR className="transform rotate-180" />
-                                </span>
-
-                                <span className="w-4 md:w-7">
-                                    <ArrowNR />
-                                </span>
+                <div className="absolute top-0 left-0 w-full h-full">
+                    <button
+                        type="button"
+                        className="absolute flex flex-col justify-center items-center text-gold bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]"
+                    >
+                        <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
+                            <span className="w-4 md:w-7">
+                                <ArrowNR className="transform rotate-180" />
                             </span>
 
-                            <span className="text-xs text-center md:text-sm font-Inter lg:hidden">
-                                Geser
+                            <span className="w-4 md:w-7">
+                                <ArrowNR />
                             </span>
-                            <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
-                                Gulir
-                            </span>
-                        </button>
-                    </div>
-                )}
+                        </span>
+
+                        <span className="text-xs text-center md:text-sm font-Inter lg:hidden">
+                            Geser
+                        </span>
+                        <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
+                            Gulir
+                        </span>
+                    </button>
+                </div>
 
                 <PageContainer
                     scrollContainer={scrollContainer}
                     currentIndex={currentIndex}
                     setCurrentIndex={setCurrentIndex}
                 >
-                    {/* main section */}
-                    <section
-                        className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
-                        style={{ maxHeight: `${height}px` }}
-                    >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-5 md:py-12 laptop:py-6 2xl:py-16 text-gold">
-                            <Main open={() => setCurrentIndex(-1)} />
-                        </div>
-                    </section>
-
                     {/* bride and groom */}
                     <section
                         className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
+                        <div className="flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
                             <BrideAndGroom />
                         </div>
                     </section>
