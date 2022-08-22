@@ -19,7 +19,7 @@ const BrideAndGroom = () => {
                 </div>
 
                 <div className="mt-12 md:mt-16 lg:mt-32 laptop:mt-14 2xl:mt-24">
-                    <h2 className="text-5xl text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
+                    <h2 className="text-[2.75rem] leading-none text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
                         Gigih Prastyono
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
@@ -34,7 +34,7 @@ const BrideAndGroom = () => {
                 </div>
 
                 <div className="mt-10 md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-20">
-                    <h2 className="text-5xl text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
+                    <h2 className="text-[2.75rem] leading-none text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
                         Almalia Deve Yanti
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
