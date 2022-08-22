@@ -47,10 +47,10 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer, currentInde
                 if (!isNil(React.Children.toArray(children)[componentIndex + 1])) {
                     isScrolling = true
                     scrollPage(componentIndex + 1)
+                    setCurrentIndex(componentIndex + 1)
 
                     setTimeout(() => {
                         setComponentIndex(prevState => prevState + 1)
-                        setCurrentIndex(componentIndex + 1)
                     }, TRANSITION_DURATION + TRANSITION_BUFFER)
                 }
             }
@@ -64,10 +64,10 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer, currentInde
                 if (!isNil(React.Children.toArray(children)[componentIndex - 1])) {
                     isScrolling = true
                     scrollPage(componentIndex - 1)
+                    setCurrentIndex(componentIndex - 1)
 
                     setTimeout(() => {
                         setComponentIndex(prevState => prevState - 1)
-                        setCurrentIndex(componentIndex - 1)
                     }, TRANSITION_DURATION + TRANSITION_BUFFER)
                 }
             }

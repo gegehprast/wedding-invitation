@@ -110,7 +110,7 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <BrideAndGroom />
+                            <BrideAndGroom isActive={currentIndex === 0} />
                         </div>
                     </section>
 
@@ -120,7 +120,7 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Countdown />
+                            <Countdown isActive={currentIndex === 1} />
                         </div>
                     </section>
 
@@ -130,7 +130,7 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Map />
+                            <Map isActive={currentIndex === 2} />
                         </div>
                     </section>
 
@@ -140,7 +140,7 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <GuestBook />
+                            <GuestBook isActive={currentIndex === 3} />
                         </div>
                     </section>
 
@@ -150,7 +150,7 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Credits />
+                            <Credits isActive={currentIndex === 4} />
                         </div>
                     </section>
                 </PageContainer>

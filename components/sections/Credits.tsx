@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Credits = () => {
-    return (
-        <>
+interface CreditProps {
+    isActive: boolean
+}
 
-        </>
-    )
+const Credits: React.FC<CreditProps> = ({ isActive }) => {
+    return <></>
 }
 
 export default Credits
