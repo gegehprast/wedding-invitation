@@ -93,7 +93,7 @@ const Amplop: React.FC<RemarkProps> = ({ messageDivRef, setRemarks, open, setOpe
                     <h1 className='text-lg text-center'>Amplop Online</h1>
                 </div>
 
-                <div className='w-full p-4 pt-3 bg-white border-gold border-t rounded-b-md md:p-6 md:pt-3 max-h-[80vh] overflow-y-auto' onClick={handleContentClick}>
+                <div className='w-full p-4 pt-3 bg-white border-gold border-t rounded-b-md md:p-6 md:pt-3 max-h-[75vh] overflow-y-auto' onClick={handleContentClick}>
                     <form className='flex flex-col w-full text-blue-floral' onSubmit={handleSubmitGuestBook}>
                         <div className='flex flex-col justify-start w-full mt-2'>
                             <input type='text'
