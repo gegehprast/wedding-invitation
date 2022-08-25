@@ -11,6 +11,7 @@ import ArrowNR from "../components/Icons/ArrowNR"
 import { getWindowDimensions } from "../utils/utils"
 import { GetServerSideProps } from "next"
 import Prokes from "../components/sections/Prokes"
+import Thanks from "../components/sections/Thanks"
 
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
@@ -63,7 +64,10 @@ const Home = () => {
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
                 />
-                <link rel="shortcut icon" href="/favicon.png" />
+                <link
+                    rel="shortcut icon"
+                    href="/favicon.png"
+                />
             </Head>
 
             <div
@@ -155,13 +159,23 @@ const Home = () => {
                         </div>
                     </section>
 
+                    {/* Thanks */}
+                    <section
+                        className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
+                        style={{ maxHeight: `${height}px` }}
+                    >
+                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
+                            <Thanks isActive={currentIndex === 5} />
+                        </div>
+                    </section>
+
                     {/* credits */}
                     <section
                         className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Credits isActive={currentIndex === 5} />
+                            <Credits isActive={currentIndex === 6} />
                         </div>
                     </section>
                 </PageContainer>
