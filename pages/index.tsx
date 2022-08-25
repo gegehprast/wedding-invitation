@@ -172,16 +172,6 @@ const Home = () => {
                             <Thanks isActive={currentIndex === 5} />
                         </div>
                     </section>
-
-                    {/* credits */}
-                    <section
-                        className={`${WIDTH_CLASS} py-10 md:py-20 laptop:py-16 2xl:py-20`}
-                        style={{ maxHeight: `${height}px` }}
-                    >
-                        <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Credits isActive={currentIndex === 6} />
-                        </div>
-                    </section>
                 </PageContainer>
             </div>
         </main>
