@@ -86,13 +86,17 @@ const Home = () => {
                         className="absolute flex flex-col justify-center items-center text-gold bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]"
                     >
                         <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
-                            <span className="w-4 md:w-7">
-                                <ArrowNR className="transform rotate-180" />
-                            </span>
+                            {currentIndex !== 0 && (
+                                <span className="w-4 md:w-7">
+                                    <ArrowNR className="transform rotate-180" />
+                                </span>
+                            )}
 
-                            <span className="w-4 md:w-7">
-                                <ArrowNR />
-                            </span>
+                            {currentIndex !== 5 && (
+                                <span className="w-4 md:w-7">
+                                    <ArrowNR />
+                                </span>
+                            )}
                         </span>
 
                         <span className="text-xs text-center md:text-sm font-Inter lg:hidden">
