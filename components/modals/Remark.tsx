@@ -65,6 +65,8 @@ const Remark: React.FC<RemarkProps> = ({ messageDivRef, setRemarks, open, setOpe
         setFullname('')
         setMessage('')
         setPresence(0)
+        setSubmitting(false)
+        setOpen(false)
 
         messageDivRef.current?.scrollTo(0, 0)
     }
