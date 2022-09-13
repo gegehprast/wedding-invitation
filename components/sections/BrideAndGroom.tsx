@@ -66,7 +66,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                     onTransitionEnd={handleTransitionEnd}
                 >
                     <h2 className="text-[2.75rem] leading-none text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
-                        Almalia Deve Yanti
+                        Almalia Deveyanti
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
                         <li>Putri Pertama Bpk. Soleh & Ibu Dewi</li>

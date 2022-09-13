@@ -33,7 +33,7 @@ const Main: React.FC<MainProps> = ({ open }) => {
 
                     {/* 20 chars */}
                     <div className='flex items-center justify-center px-2 md:pt-4 md:pb-5 md:px-5 w-[65vw] md:w-[50vw] lg:w-[30vw] laptop:w-[20vw] 2xl:w-[15vw] min-h-[10vh] border-2 rounded-md border-gold'>
-                        <span className='leading-none text-center md:text-xl'>ALMALIA DEVE YANTI</span>
+                        <span className='leading-none text-center md:text-xl'>ALMALIA DEVEYANTI</span>
                     </div>
                 </div>
 
