@@ -40,7 +40,7 @@ const Map: React.FC<MapProps> = ({ isActive }) => {
                 className={`${CLASESS[1]} w-full px-4 mt-10 md:px-20 laptop:px-16 2xl:px-20 md:mt-14 lg:mt-28 laptop:mt-6 2xl:mt-24`}
             >
                 <span className="text-sm text-left md:text-base font-Inter">
-                    Jl. Pulau Mas III RT 02 RW 06, Kepuharjo, Karang Ploso, Kab.
+                    Jl. Pulau Mas III RT 06 RW 02, Kepuharjo, Karang Ploso, Kab.
                     Malang, Jawa Timur 65152
                 </span>
             </div>

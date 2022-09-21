@@ -130,7 +130,7 @@ const Counting: React.FC<CountingProps> = ({
                         <li>Pukul 08:00 WIB - selesai</li>
                         <li>Kediaman mempelai wanita</li>
                         <li>
-                            Jl. Pulau Mas III RT 02 RW 06, Kepuharjo, Karang
+                            Jl. Pulau Mas III RT 06 RW 02, Kepuharjo, Karang
                             Ploso
                         </li>
                     </ul>
@@ -145,7 +145,7 @@ const Counting: React.FC<CountingProps> = ({
                         <li>Pukul 14:00 WIB - selesai</li>
                         <li>Kediaman mempelai wanita</li>
                         <li>
-                            Jl. Pulau Mas III RT 02 RW 06, Kepuharjo, Karang
+                            Jl. Pulau Mas III RT 06 RW 02, Kepuharjo, Karang
                             Ploso
                         </li>
                     </ul>
