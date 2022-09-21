@@ -58,7 +58,7 @@ const Thanks: React.FC<ThankProps> = ({ isActive }) => {
                 </div>
             </div>
 
-            <div className="px-6 mt-10 md:px-40 lg:px-40 laptop:px-40 xl:px-48 ">
+            <div className="px-6 mt-10 fhd:mt-4 fhd+:mt-10 md:px-40 lg:px-40 laptop:px-40 xl:px-48 ">
                 <Image
                     className={`${CLASESS[3]} pointer-events-none`}
                     onTransitionEnd={handleTransitionEnd}
