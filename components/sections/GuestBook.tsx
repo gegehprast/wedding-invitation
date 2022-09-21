@@ -85,7 +85,7 @@ const GuestBook: React.FC<GuestBookProps> = ({ isActive }) => {
                 ref={messageDivRef}
             >
                 <div
-                    className={`overflow-y-scroll p-2 md:p-4 h-[65vh] 2xl:h-[59vh]`}
+                    className={`overflow-y-auto p-2 md:p-4 h-[65vh] 2xl:h-[59vh]`}
                 >
                     {remarks.map(remark => (
                         <div
