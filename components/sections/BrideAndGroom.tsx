@@ -70,7 +70,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive, coverModalOpen, setC
                         Almalia Deveyanti
                     </h2>
                     <ul className="mt-2 text-xl leading-none md:text-3xl laptop:text-2xl 2xl:text-3xl md:mt-4 font-Peddana">
-                        <li>Putri Pertama Bpk. Soleh & Ibu Dewi</li>
+                        <li>Putri Tunggal Bpk. Soleh & Ibu Dewi</li>
                     </ul>
                 </div>
             </div>
