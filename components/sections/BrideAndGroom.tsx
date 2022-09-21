@@ -4,10 +4,11 @@ import Cover from '../modals/Cover'
 
 interface BrideAndGroom {
     isActive: boolean
+    coverModalOpen: boolean
+    setCoverModalOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
-    const [coverModalOpen, setCoverModalOpen] = useState(true)
+const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive, coverModalOpen, setCoverModalOpen }) => {
     const [transitionDone, setTransitionDone] = useState(false)
     const router = useRouter()
 
