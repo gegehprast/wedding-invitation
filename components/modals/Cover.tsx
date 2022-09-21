@@ -11,12 +11,41 @@ interface CoverProps {
 }
 
 const Cover: React.FC<CoverProps> = ({ open, setOpen, recipient }) => {
+    const mainDivRef = useRef<HTMLDivElement>(null)
+
+    const handleDivTouch = useCallback((e: TouchEvent) => {
+        e.stopPropagation()
+    }, [])
+
+    const handleDivWheel: React.WheelEventHandler<HTMLDivElement> = (e) => {
+        e.stopPropagation()
+    }
+
+    useEffect(() => {
+        const instance = mainDivRef.current
+
+        instance!.addEventListener('touchstart', handleDivTouch, {
+            passive: true,
+        })
+        instance!.addEventListener('touchmove', handleDivTouch, {
+            passive: true,
+        })
+
+        return () => {
+            instance!.removeEventListener('touchstart', handleDivTouch)
+            instance!.removeEventListener('touchmove', handleDivTouch)
+        }
+    }, [handleDivTouch])
+
     return (
         <div
             className={`${
                 open ? 'opacity-100' : 'opacity-0 pointer-events-none'
-            } absolute top-0 left-0 w-full h-full bg-blue-floral font-Inter transition-opacity duration-[1500ms] ease-in-out z-50`}>
-            <div className="relative z-50 w-full h-full">
+            } absolute top-0 left-0 w-full h-full bg-blue-floral font-Inter transition-opacity duration-[1500ms] ease-in-out`}
+            onWheel={handleDivWheel}
+            ref={mainDivRef}
+        >
+            <div className="relative w-full h-full">
                 <div className="moving-bg"></div>
 
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
