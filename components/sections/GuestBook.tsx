@@ -81,11 +81,11 @@ const GuestBook: React.FC<GuestBookProps> = ({ isActive }) => {
 
             <div
                 className={`${CLASESS[1]} flex flex-col w-full px-2 mt-8 md:px-20 laptop:px-10 2xl:px-20 md:mt-14 lg:mt-28 laptop:mt-6 2xl:mt-24 font-Inter`}
-                onWheel={handleMessageWheel}
-                ref={messageDivRef}
             >
                 <div
-                    className={`overflow-y-auto p-2 md:p-4 h-[65vh] 2xl:h-[59vh]`}
+                    className={`overflow-y-auto p-2 md:p-4 max-h-[65vh] 2xl:max-h-[59vh]`}
+                    onWheel={handleMessageWheel}
+                    ref={messageDivRef}
                 >
                     {remarks.map(remark => (
                         <div
