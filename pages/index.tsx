@@ -12,6 +12,8 @@ import { getWindowDimensions } from "../utils/utils"
 import { GetServerSideProps } from "next"
 import Prokes from "../components/sections/Prokes"
 import Thanks from "../components/sections/Thanks"
+import Image from "next/image"
+import Anya from '../public/anya.png'
 
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
@@ -79,6 +81,17 @@ const Home = () => {
 
                 <BgFlowerHorizontalUp className="top-0 left-0 pointer-events-none" />
                 <BgFlowerHorizontalDown className="top-0 left-0 pointer-events-none" />
+
+                {currentIndex === 5 && (
+                    <div className="absolute bottom-0 right-0 pointer-events-none w-[80px] h-[62.27px]">
+                        <Image
+                            width={80}
+                            height={62.27}
+                            src={Anya}
+                            alt="anya"
+                        />
+                    </div>
+                )}
 
                 <div className="absolute top-0 left-0 w-full h-full">
                     <button
