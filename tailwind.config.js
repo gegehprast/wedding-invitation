@@ -17,6 +17,8 @@ module.exports = {
                 raw: '(min-width: 1366px)',
             },
             '2xl': '1536px',
+            fhd: '1920px',
+            'fhd+': '2560px',
         },
         extend: {
             colors: {

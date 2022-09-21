@@ -119,7 +119,7 @@ const Counting: React.FC<CountingProps> = ({
             </div>
 
             <div
-                className={`${CLASESS[1]} w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24`}
+                className={`${CLASESS[1]} w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24 fhd:mt-10 fhd+:mt-24`}
             >
                 <div>
                     <h2 className="text-5xl text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-Creattion">
@@ -128,9 +128,10 @@ const Counting: React.FC<CountingProps> = ({
                     <ul className="mt-2 text-lg leading-none md:text-2xl laptop:text-lg 2xl:text-2xl md:mt-4 font-BebasNeue">
                         <li>Senin, 31 Oktober 2022</li>
                         <li>Pukul 08:00 WIB - selesai</li>
+                        <li>Kediaman mempelai wanita</li>
                         <li>
                             Jl. Pulau Mas III RT 02 RW 06, Kepuharjo, Karang
-                            Ploso (Kediaman mempelai wanita)
+                            Ploso
                         </li>
                     </ul>
                 </div>
@@ -142,16 +143,17 @@ const Counting: React.FC<CountingProps> = ({
                     <ul className="mt-2 text-lg leading-none md:text-2xl laptop:text-lg 2xl:text-2xl md:mt-4 font-BebasNeue">
                         <li>Senin, 31 Oktober 2022</li>
                         <li>Pukul 14:00 WIB - selesai</li>
+                        <li>Kediaman mempelai wanita</li>
                         <li>
                             Jl. Pulau Mas III RT 02 RW 06, Kepuharjo, Karang
-                            Ploso (Kediaman mempelai wanita)
+                            Ploso
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div
-                className={`${CLASESS[2]} flex flex-row items-center justify-center w-full text-center mt-8 2xl:mt-24 flex-nowrap font-BebasNeue text-gold`}
+                className={`${CLASESS[2]} flex flex-row items-center justify-center w-full text-center mt-8 2xl:mt-24 fhd:mt-10 fhd+:mt-24 flex-nowrap font-BebasNeue text-gold`}
             >
                 <div className="flex flex-col mx-3 md:mx-6">
                     <span className="text-4xl md:text-6xl laptop:text-4xl 2xl:text-6xl">
