@@ -14,6 +14,8 @@ import Prokes from "../components/sections/Prokes"
 import Thanks from "../components/sections/Thanks"
 import Image from "next/image"
 import Anya from '../public/anya.png'
+import Speaker from "../components/Icons/Speaker"
+import SpeakerX from "../components/Icons/SpeakerX"
 
 const Countdown = dynamic(() => import('../components/sections/Countdown'), { ssr: false })
 const Map = dynamic(() => import('../components/sections/Map'), { ssr: false })
@@ -46,14 +48,59 @@ function useWindowDimensions() {
     return { ...windowDimensions, refresh }
 }
 
+const createAudioInstance = () => {
+    const audio = new Audio()
+    return audio
+}
+
 const Home = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [coverModalOpen, setCoverModalOpen] = useState(true)
+    const [isPlaying, setIsPlaying] = useState(false)
+    const [isMuted, setIsMuted] = useState(false)
     const scrollContainer = useRef<HTMLDivElement>(null)
+    const audioRef = useRef<HTMLAudioElement>()
     const { height, refresh } = useWindowDimensions()
+
+    const handleSound = () => {
+        if (!audioRef.current) {
+            return
+        }
+
+        audioRef.current.muted = !isMuted
+
+        setIsMuted(!isMuted)
+    }
+
+    const playAudio = async () => {
+        if (!audioRef.current) {
+            return
+        }
+
+        if (audioRef.current.src.length < 1) return
+
+        audioRef.current.volume = 1
+
+        await audioRef.current.play()
+
+        setIsPlaying(true)
+    }
     
     useEffect(() => {
         refresh()
     }, [refresh])
+
+    useEffect(() => {
+        if (coverModalOpen === false) {
+            playAudio()
+        }
+    }, [coverModalOpen])
+    
+    useEffect(() => {
+        audioRef.current = createAudioInstance()
+
+        audioRef.current.src = '/10 Until The Lights Go Out.mp3'
+    }, [])
 
     return (
         <main
@@ -93,34 +140,6 @@ const Home = () => {
                     </div>
                 )}
 
-                <div className="absolute top-0 left-0 w-full h-full">
-                    <button
-                        type="button"
-                        className="absolute flex flex-col justify-center items-center text-gold bottom-[2rem] right-[0.75rem] md:bottom-[4.25rem] md:right-[1.25rem]"
-                    >
-                        <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
-                            {currentIndex !== 0 && (
-                                <span className="w-4 md:w-7">
-                                    <ArrowNR className="transform rotate-180" />
-                                </span>
-                            )}
-
-                            {currentIndex !== 5 && (
-                                <span className="w-4 md:w-7">
-                                    <ArrowNR />
-                                </span>
-                            )}
-                        </span>
-
-                        <span className="text-xs text-center md:text-sm font-Inter lg:hidden">
-                            Geser
-                        </span>
-                        <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
-                            Gulir
-                        </span>
-                    </button>
-                </div>
-
                 <PageContainer
                     scrollContainer={scrollContainer}
                     currentIndex={currentIndex}
@@ -132,7 +151,11 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <BrideAndGroom isActive={currentIndex === 0} />
+                            <BrideAndGroom
+                                isActive={currentIndex === 0}
+                                coverModalOpen={coverModalOpen}
+                                setCoverModalOpen={setCoverModalOpen}
+                            />
                         </div>
                     </section>
 
@@ -189,6 +212,46 @@ const Home = () => {
                         </div>
                     </section>
                 </PageContainer>
+
+                {!coverModalOpen && (
+                    <div className="absolute left-0 w-full bottom-[4rem] md:bottom-[5.5rem]">
+                        <button
+                            type="button"
+                            className="absolute flex flex-col justify-center items-center text-gold right-[0.75rem] md:right-[1.25rem]"
+                        >
+                            <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
+                                {currentIndex !== 0 && (
+                                    <span className="w-4 md:w-7">
+                                        <ArrowNR className="transform rotate-180" />
+                                    </span>
+                                )}
+
+                                {currentIndex !== 5 && (
+                                    <span className="w-4 md:w-7">
+                                        <ArrowNR />
+                                    </span>
+                                )}
+                            </span>
+
+                            <span className="text-xs text-center md:text-sm font-Inter lg:hidden">
+                                Geser
+                            </span>
+                            <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
+                                Gulir
+                            </span>
+                        </button>
+
+                        <button
+                            type="button"
+                            className="absolute flex flex-col justify-center items-center text-gold left-[0.75rem] md:left-[1.25rem]"
+                            onClick={handleSound}
+                        >
+                            <span className="w-7 md:w-10">
+                                {isMuted ? <SpeakerX /> : <Speaker />}
+                            </span>
+                        </button>
+                    </div>
+                )}
             </div>
         </main>
     )
