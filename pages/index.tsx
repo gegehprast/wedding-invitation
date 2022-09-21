@@ -129,7 +129,10 @@ const Home = () => {
                         style={{ maxHeight: `${height}px` }}
                     >
                         <div className="relative flex flex-col items-center justify-start w-full h-full py-6 md:py-20 laptop:py-6 2xl:py-16 text-gold">
-                            <Countdown isActive={currentIndex === 1} />
+                            <Countdown
+                                isActive={currentIndex === 1}
+                                setCurrentIndex={setCurrentIndex}
+                            />
                         </div>
                     </section>
 

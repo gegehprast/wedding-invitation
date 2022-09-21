@@ -146,8 +146,22 @@ const PageContainer: React.FC<Props> = ({ children, scrollContainer, currentInde
     useEffect(() => {
         if (currentIndex === -1 && componentIndex === 0) {
             scrollNext()
+
+            return
         }
-    }, [currentIndex, scrollNext, componentIndex])
+        
+        if (currentIndex > componentIndex) {
+            scrollNext()
+
+            return
+        }
+
+        if (currentIndex < componentIndex) {
+            scrollPrev()
+
+            return
+        }
+    }, [currentIndex, scrollNext, componentIndex, scrollPrev])
     
 
     return (
