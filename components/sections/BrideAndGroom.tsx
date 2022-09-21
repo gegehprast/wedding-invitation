@@ -43,7 +43,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                 </div>
 
                 <div
-                    className={`${CLASESS[2]} mt-12 md:mt-16 lg:mt-32 laptop:mt-14 2xl:mt-24`}
+                    className={`${CLASESS[2]} mt-12 md:mt-16 lg:mt-32 laptop:mt-14 2xl:mt-24 fhd:mt-14 fhd+:mt-24`}
                 >
                     <h2 className="text-[2.75rem] leading-none text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
                         Gigih Prastyono
@@ -54,7 +54,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                 </div>
 
                 <div
-                    className={`${CLASESS[3]} mt-10 md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-20`}
+                    className={`${CLASESS[3]} mt-10 md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-20 fhd:mt-10 fhd+:mt-20`}
                 >
                     <h2 className="text-5xl text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">
                         &
@@ -62,7 +62,7 @@ const BrideAndGroom: React.FC<BrideAndGroom> = ({ isActive }) => {
                 </div>
 
                 <div
-                    className={`${CLASESS[4]} mt-10 md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-20`}
+                    className={`${CLASESS[4]} mt-10 md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-20 fhd:mt-10 fhd+:mt-20`}
                     onTransitionEnd={handleTransitionEnd}
                 >
                     <h2 className="text-[2.75rem] leading-none text-center md:text-7xl laptop:text-5xl 2xl:text-7xl font-AlexBrush">

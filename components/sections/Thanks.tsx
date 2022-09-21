@@ -40,7 +40,7 @@ const Thanks: React.FC<ThankProps> = ({ isActive }) => {
                 <h1 className="text-2xl text-center md:text-4xl laptop:text-3xl 2xl:text-4xl font-HinaMincho"></h1>
             </div>
 
-            <div className="w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24">
+            <div className="w-full mt-10 text-center md:mt-14 lg:mt-28 laptop:mt-10 2xl:mt-24 fhd:mt-10 fhd+:mt-24">
                 <div className="px-4 md:px-20 laptop:px-16 2xl:px-20">
                     <h2
                         className={`${CLASESS[1]} text-xl text-center font-Peddana md:text-3xl laptop:text-2xl 2xl:text-3xl`}
@@ -58,7 +58,7 @@ const Thanks: React.FC<ThankProps> = ({ isActive }) => {
                 </div>
             </div>
 
-            <div className='px-6 mt-10 md:px-40 lg:px-40 laptop:px-40 xl:px-48'>
+            <div className="px-6 mt-10 md:px-40 lg:px-40 laptop:px-40 xl:px-48 ">
                 <Image
                     className={`${CLASESS[3]} pointer-events-none`}
                     onTransitionEnd={handleTransitionEnd}
