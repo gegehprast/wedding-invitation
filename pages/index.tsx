@@ -79,7 +79,7 @@ const Home = () => {
 
         if (audioRef.current.src.length < 1) return
 
-        audioRef.current.volume = 1
+        audioRef.current.volume = 0.75
 
         await audioRef.current.play()
 
