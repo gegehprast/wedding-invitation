@@ -54,7 +54,14 @@ const Amplop: React.FC<RemarkProps> = ({ messageDivRef, setRemarks, open, setOpe
 
         setSubmitting(true)
 
-        const store = await storeRemark(fullname, message, presence)
+        const store = await storeRemark({
+            fullname,
+            contact,
+            bankAccount: bank,
+            nominal: parseFloat(amount),
+            message,
+            presence,
+        })
 
         if (!store) {
             alert('Oops! Maaf, terjadi kesalahan. Silakan coba kembali.')

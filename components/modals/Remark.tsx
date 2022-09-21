@@ -49,7 +49,14 @@ const Remark: React.FC<RemarkProps> = ({ messageDivRef, setRemarks, open, setOpe
 
         setSubmitting(true)
 
-        const store = await storeRemark(fullname, message, presence)
+        const store = await storeRemark({
+            fullname,
+            contact: undefined,
+            bankAccount: undefined,
+            nominal: undefined,
+            message,
+            presence,
+        })
 
         if (!store) {
             alert('Oops! Maaf, terjadi kesalahan. Silakan coba kembali.')
