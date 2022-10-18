@@ -113,6 +113,34 @@ const Home = () => {
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
                 />
+                <meta
+                    name="description"
+                    content="Undangan Pernikahan Almalia & Gigih"
+                />
+                <meta
+                    name="keywords"
+                    content="Wedding Invitation"
+                />
+                <meta
+                    name="author"
+                    content="Gegeh Prast"
+                />
+                <meta
+                    property="og:title"
+                    content="Undangan Pernikahan Almalia & Gigih"
+                />
+                <meta
+                    property="og:description"
+                    content="Undangan Pernikahan Almalia & Gigih."
+                />
+                <meta
+                    property="og:image"
+                    content="/svg/flower-circle-final.svg"
+                />
+                <meta
+                    property="og:locale"
+                    content="id_ID"
+                />
                 <link
                     rel="shortcut icon"
                     href="/favicon.png"
