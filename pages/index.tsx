@@ -77,6 +77,8 @@ const Home = () => {
             return
         }
 
+        audioRef.current.src = '/13 You.mp3'
+
         if (audioRef.current.src.length < 1) return
 
         audioRef.current.volume = 0.75
@@ -98,8 +100,6 @@ const Home = () => {
     
     useEffect(() => {
         audioRef.current = createAudioInstance()
-
-        audioRef.current.src = '/13 You.mp3'
     }, [])
 
     return (
