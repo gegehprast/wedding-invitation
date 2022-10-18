@@ -138,6 +138,10 @@ const Home = () => {
                     content="/svg/flower-circle-final.svg"
                 />
                 <meta
+                    property="og:image:alt"
+                    content="Gegeh & Alma"
+                />
+                <meta
                     property="og:locale"
                     content="id_ID"
                 />
