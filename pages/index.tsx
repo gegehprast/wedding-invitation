@@ -126,6 +126,14 @@ const Home = () => {
                     content="Gegeh Prast"
                 />
                 <meta
+                    property="og:url"
+                    content="https://almalia.dev"
+                />
+                <meta
+                    property="og:type"
+                    content="website"
+                />
+                <meta
                     property="og:title"
                     content="Undangan Pernikahan Almalia & Gigih"
                 />
@@ -148,6 +156,10 @@ const Home = () => {
                 <link
                     rel="shortcut icon"
                     href="/favicon.png"
+                />
+                <link
+                    rel="canonical"
+                    href="https://almalia.dev"
                 />
             </Head>
 
