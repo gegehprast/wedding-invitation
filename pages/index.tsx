@@ -143,7 +143,7 @@ const Home = () => {
                 />
                 <meta
                     property="og:image"
-                    content="https://almalia.dev/svg/FlowerCircleFinal.png"
+                    content="https://almalia.dev/svg/FlowerCircleFinalSmall.png"
                 />
                 <meta
                     property="og:image:alt"
