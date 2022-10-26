@@ -261,7 +261,7 @@ const Home = () => {
                     <div className="absolute left-0 w-full bottom-[4rem] md:bottom-[5.5rem]">
                         <button
                             type="button"
-                            className="absolute flex flex-col justify-center items-center text-gold right-[0.75rem] md:right-[1.25rem]"
+                            className="absolute flex flex-col justify-center items-center text-gold right-[0.75rem] md:right-[1.25rem] cursor-default"
                         >
                             <span className="flex flex-row items-center justify-center w-10 animate-bounce-right">
                                 {currentIndex !== 0 && (
@@ -281,7 +281,7 @@ const Home = () => {
                                 Geser
                             </span>
                             <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
-                                Gulir
+                                Scroll
                             </span>
                         </button>
 
