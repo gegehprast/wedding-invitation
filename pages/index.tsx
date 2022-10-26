@@ -281,7 +281,7 @@ const Home = () => {
                                 Geser
                             </span>
                             <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
-                                Scroll
+                                Gulir
                             </span>
                         </button>
 
