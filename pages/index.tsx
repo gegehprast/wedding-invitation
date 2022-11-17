@@ -77,7 +77,7 @@ const Home = () => {
             return
         }
 
-        audioRef.current.src = '/please-calm-my-mind-125566.mp3'
+        audioRef.current.src = '/wedding-love-story-110055.mp3'
 
         if (audioRef.current.src.length < 1) return
 
