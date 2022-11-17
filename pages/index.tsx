@@ -73,7 +73,19 @@ const Home = () => {
     }
 
     const playAudio = async () => {
-        return
+        if (!audioRef.current) {
+            return
+        }
+
+        audioRef.current.src = '/please-calm-my-mind-125566.mp3'
+
+        if (audioRef.current.src.length < 1) return
+
+        audioRef.current.volume = 0.75
+
+        await audioRef.current.play()
+
+        setIsPlaying(true)
     }
     
     useEffect(() => {
@@ -270,6 +282,16 @@ const Home = () => {
                             </span>
                             <span className="hidden text-xs text-center md:text-sm font-Inter lg:inline-block">
                                 Gulir
+                            </span>
+                        </button>
+
+                        <button
+                            type="button"
+                            className="absolute flex flex-col justify-center items-center text-gold left-[0.75rem] md:left-[1.25rem]"
+                            onClick={handleSound}
+                        >
+                            <span className="w-7 md:w-10">
+                                {isMuted ? <SpeakerX /> : <Speaker />}
                             </span>
                         </button>
                     </div>
