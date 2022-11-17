@@ -230,7 +230,7 @@ const Completed = () => {
 
                 <div className="flex w-full mt-10">
                     <a
-                        href="https://goo.gl/maps/EaaEGzcQzfhXwh6H9"
+                        href="https://www.google.com/maps/place/Amsterdam,+Netherlands/@52.3546448,4.83375,12z/data=!3m1!4b1!4m6!3m5!1s0x47c63fb5949a7755:0x6600fd4cb7c0af8d!8m2!3d52.3675734!4d4.9041389!16zL20vMGszcA"
                         className="flex flex-row items-center justify-center p-2 px-4 mx-auto flex-nowrap bg-gold rounded-2xl text-blue-floral"
                         target={'_blank'}
                         rel="noreferrer"

@@ -54,7 +54,7 @@ const Map: React.FC<MapProps> = ({ isActive }) => {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     allowFullScreen={false}
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.924180239802!2d112.61760131477881!3d-7.9029899943067425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x7f5f8d97a171d0c!2zN8KwNTQnMTAuOCJTIDExMsKwMzcnMTEuMiJF!5e0!3m2!1sen!2sid!4v1663138083663!5m2!1sen!2sid&zoom=15&language=id"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77979.8368011025!2d4.833749963173043!3d52.354644845895635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c63fb5949a7755%3A0x6600fd4cb7c0af8d!2sAmsterdam%2C%20Netherlands!5e0!3m2!1sen!2sid!4v1668709693199!5m2!1sen!2sid&zoom=15&language=id"
                 ></iframe>
             </div>
         </>
